@@ -1,0 +1,25 @@
+#ifndef VIEW_H
+#define VIEW_H
+
+#include <QMainWindow>
+
+namespace Ui {
+class view;
+}
+
+class View : public QMainWindow
+{
+    Q_OBJECT
+
+public:
+    explicit View(QWidget *parent = 0);
+    ~View();
+
+private slots:
+    void on_button_open_clicked();
+    
+private:
+    Ui::view *ui;
+};
+
+#endif // VIEW_H
