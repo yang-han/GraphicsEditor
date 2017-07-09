@@ -9,7 +9,8 @@ protected:
 
 public:
     Parameters();
-    void set_path(std::string & path);
+    void set_path(std::string path);
+    std::string get_path();
 };
 
 #endif // PARAMETERS_H

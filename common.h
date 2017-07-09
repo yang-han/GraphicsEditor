@@ -5,7 +5,7 @@
 #include <QImage>
 #include <QPixmap>
 #include <QDir>
-#include <QDialog>
+#include <QFileDialog>
 #include <QDebug>
 #include <QString>
 #include <QMessageBox>
@@ -18,5 +18,6 @@ enum Type {
 QImage Mat2QImage(cv::Mat const& src);
 
 cv::Mat QImage2Mat(QImage const& src);
+
 
 #endif // COMMON_H

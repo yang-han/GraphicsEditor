@@ -25,7 +25,16 @@ void View::on_button_open_clicked()
         return;
     }
     qInfo() << file_name;
+    open_file_command->get_params().set_path(file_name.toStdString());
+    open_file_command->exec();
 
-    auto comm = new OpenFileCommand();
+}
 
+
+void View::setOpenFileCommand(std::shared_ptr<OpenFileCommand> command){
+    open_file_command = command;
+}
+
+void View::update(std::shared_ptr<QImage> q_img){
+    ui->label->setPixmap(QPixmap::fromImage(*q_img));
 }

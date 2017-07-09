@@ -1,12 +1,16 @@
+#ifndef _OPEN_FILE_COMMAND_H_
+#define _OPEN_FILE_COMMAND_H_
+
 #include "command.h"
 #include "viewmodel.h"
 #include <string>
-class OpenFileCommand : public Command
-{
 
+class OpenFileCommand : public Command{
 public:
-    OpenFileCommand(std::shared_ptr<ViewModel> vm, std::string path):Command(vm) {
-        Command::params.set_path(path);
-    }
+    OpenFileCommand();
+    ~OpenFileCommand();
     void exec();
+
 };
+
+#endif

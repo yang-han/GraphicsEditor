@@ -1,8 +1,12 @@
-#include "open_file_command.h"
+#include "Commands/open_file_command.h"
+#include "viewmodel.h"
+#include "command.h"
 
-OpenFileCommand::OpenFileCommand(std::shared_ptr<ViewModel> vm, std::string path):Command(vm) {
-    Command::params.set_path(path);
+OpenFileCommand::OpenFileCommand() {
 }
+
 void OpenFileCommand::exec(){
-
+    viewmodel->exec_open_file_command(Command::params);
 }
+
+OpenFileCommand::~OpenFileCommand(){}

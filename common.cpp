@@ -1,6 +1,7 @@
 #include "common.h"
 
 
+
 QImage Mat2QImage(cv::Mat const& src)
 {
      cv::Mat temp; // make the same cv::Mat

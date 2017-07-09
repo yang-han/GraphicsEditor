@@ -3,7 +3,7 @@
 
 #include "common.h"
 #include "parameters.h"
-#include "viewmodel.h"
+class ViewModel;
 
 class Command
 {
@@ -15,8 +15,10 @@ protected:
 
 public:
     Command();
+    void bind(std::shared_ptr<ViewModel> viewmodel);
     void set_type(Type t);
-    virtual exec() = 0;
+    Parameters& get_params();
+    virtual void exec() = 0;
 };
 
 #endif // COMMAND_H

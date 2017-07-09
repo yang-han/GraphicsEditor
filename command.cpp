@@ -1,8 +1,18 @@
 #include "command.h"
 #include "viewmodel.h"
-Command::Command(std::shared_ptr<ViewModel> vm):viewmodel(vm)
+#include "parameters.h"
+Command::Command()
 {
 
+}
+
+
+void Command::bind(std::shared_ptr<ViewModel> viewmodel){
+    this->viewmodel = viewmodel;
+}
+
+Parameters& Command::get_params(){
+    return params;
 }
 
 

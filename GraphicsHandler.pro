@@ -83,7 +83,8 @@ SOURCES += \
     parameters.cpp \
     view.cpp \
     viewmodel.cpp \
-    app.cpp
+    app.cpp \
+    notification.cpp
 
 HEADERS += \
         view.h \
@@ -129,7 +130,8 @@ HEADERS += \
     parameters.h \
     view.h \
     viewmodel.h \
-    app.h
+    app.h \
+    notification.h
 
 FORMS += \
         view.ui
