@@ -1,25 +1,23 @@
 #include "app.h"
-#include "common.h"
 #include "view.h"
-#include "model.h"
 #include "viewmodel.h"
-#include "notification.h"
+#include "model.h"
+#include "command.h"
 #include "Commands/open_file_command.h"
+#include "notification.h"
+#include <memory>
 
-App::App():
-model(new Model), viewmodel(new ViewModel), view(new View)
+App::App():view(new View),model(new Model), viewmodel(new ViewModel),
+    notification(new Notification), open_file_command(new OpenFileCommand)
 {
-    viewmodel->bind(model, notification);
-    model->bind(viewmodel);
-    notification->bind(view, viewmodel);
-    open_file_command->bind(viewmodel);
-    view->setOpenFileCommand(open_file_command);
-}
 
-App::~App(){
-//    delete model;
-//    delete viewmodel;
-//    delete view;
+    viewmodel->bind(model);
+    model->bind(viewmodel);
+    notification->bind(viewmodel, view);
+    viewmodel->set_notification(notification);
+    open_file_command->set_view_model(viewmodel);
+
+    view->set_open_file_command(open_file_command);
 }
 
 void App::run(){

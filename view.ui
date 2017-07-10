@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>view</class>
- <widget class="QMainWindow" name="view">
+ <class>View</class>
+ <widget class="QMainWindow" name="View">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>976</width>
-    <height>673</height>
+    <width>971</width>
+    <height>674</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>view</string>
+   <string>View</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="button_open">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
+      <x>20</x>
+      <y>10</y>
       <width>89</width>
       <height>25</height>
      </rect>
@@ -31,9 +31,9 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>56</y>
-      <width>931</width>
-      <height>521</height>
+      <y>40</y>
+      <width>891</width>
+      <height>571</height>
      </rect>
     </property>
     <property name="text">
@@ -46,7 +46,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>976</width>
+     <width>971</width>
      <height>22</height>
     </rect>
    </property>

@@ -4,6 +4,7 @@
 #include "command.h"
 #include "viewmodel.h"
 #include <string>
+#include <memory>
 
 class OpenFileCommand : public Command{
 public:

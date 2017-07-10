@@ -2,7 +2,8 @@
 #include "viewmodel.h"
 #include "command.h"
 
-OpenFileCommand::OpenFileCommand() {
+OpenFileCommand::OpenFileCommand(){
+
 }
 
 void OpenFileCommand::exec(){

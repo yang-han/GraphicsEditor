@@ -2,11 +2,11 @@
 #define PARAMETERS_H
 
 #include <string>
+
 class Parameters
 {
-protected:
+private:
     std::string path;
-
 public:
     Parameters();
     void set_path(std::string path);

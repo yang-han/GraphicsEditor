@@ -1,19 +1,19 @@
 #include "command.h"
-#include "viewmodel.h"
 #include "parameters.h"
+#include "viewmodel.h"
+
 Command::Command()
 {
 
 }
 
-
-void Command::bind(std::shared_ptr<ViewModel> viewmodel){
-    this->viewmodel = viewmodel;
-}
-
-Parameters& Command::get_params(){
+Parameters& Command::get_params_handle(){
     return params;
 }
 
+void Command::set_view_model(std::shared_ptr<ViewModel> viewmodel)
+{
+    this->viewmodel = viewmodel;
+}
 
-void Command::set_type(Type t){type = t;}
+

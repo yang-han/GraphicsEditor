@@ -2,14 +2,13 @@
 #define VIEW_H
 
 #include <QMainWindow>
-#include "command.h"
-#include "common.h"
-#include "Commands/open_file_command.h"
+#include <memory>
+#include <QImage>
+class OpenFileCommand;
 
 namespace Ui {
-class view;
+class View;
 }
-class OpenFileCommand;
 
 class View : public QMainWindow
 {
@@ -18,13 +17,14 @@ class View : public QMainWindow
 public:
     explicit View(QWidget *parent = 0);
     ~View();
-    void update(std::shared_ptr<QImage> q_img);
-    void setOpenFileCommand(std::shared_ptr<OpenFileCommand> command);
+    void update(QImage& q_image);
+    void set_open_file_command(std::shared_ptr<OpenFileCommand>);
+
 private slots:
     void on_button_open_clicked();
 
 private:
-    Ui::view *ui;
+    Ui::View *ui;
     std::shared_ptr<OpenFileCommand> open_file_command;
 };
 

@@ -1,22 +1,21 @@
 #ifndef MODEL_H
 #define MODEL_H
 
-#include "common.h"
-#include "viewmodel.h"
+#include <opencv2/opencv.hpp>
+#include <memory>
+#include <string>
 class ViewModel;
-
 
 class Model
 {
 private:
-    std::shared_ptr<ViewModel> viewmodel;
-    std::shared_ptr<cv::Mat> image;
+     cv::Mat image;
+     std::shared_ptr<ViewModel> viewmodel;
 public:
     Model();
-    ~Model();
     void bind(std::shared_ptr<ViewModel> viewmodel);
-    std::shared_ptr<cv::Mat> get();
-    void load(std::string file_name);
+    void open_file(std::string path);
+    cv::Mat& get();
     void notify();
 };
 

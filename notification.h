@@ -1,23 +1,20 @@
 #ifndef NOTIFICATION_H
 #define NOTIFICATION_H
-#include "common.h"
-#include "view.h"
-#include "viewmodel.h"
 
-class View;
+#include <memory>
 class ViewModel;
-
+class View;
 
 class Notification
 {
-protected:
-    std::shared_ptr<View> view;
+private:
     std::shared_ptr<ViewModel> viewmodel;
+    std::shared_ptr<View> view;
 
 public:
     Notification();
-    void bind(std::shared_ptr<View> view, std::shared_ptr<ViewModel> viewmodel);
-    virtual void exec();
+    void bind(std::shared_ptr<ViewModel> viewmodel, std::shared_ptr<View> view);
+    void exec();
 };
 
 #endif // NOTIFICATION_H
