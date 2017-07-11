@@ -21,9 +21,7 @@ private:
     std::shared_ptr<Model> model;
     std::shared_ptr<View> view;
 
-    std::shared_ptr<Notification> notification;
 
-    std::shared_ptr<OpenFileCommand> open_file_command;
 public:
     App();
     void run();

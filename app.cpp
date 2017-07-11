@@ -7,17 +7,19 @@
 #include "notification.h"
 #include <memory>
 
-App::App():view(new View),model(new Model), viewmodel(new ViewModel),
-    notification(new Notification), open_file_command(new OpenFileCommand)
+App::App():view(new View),model(new Model), viewmodel(new ViewModel)
 {
 
     viewmodel->bind(model);
-    model->bind(viewmodel);
-    notification->bind(viewmodel, view);
-    viewmodel->set_notification(notification);
-    open_file_command->set_view_model(viewmodel);
 
-    view->set_open_file_command(open_file_command);
+    view->set_img(viewmodel->get());
+
+    view->set_open_file_command(viewmodel->get_open_file_command());
+
+    viewmodel->set_notification(std::shared_ptr<ViewModelNotification>(new ViewModelNotification(view)));
+    model->set_notification(std::shared_ptr<ModelNotification>(new ModelNotification(viewmodel)));
+
+
 }
 
 void App::run(){

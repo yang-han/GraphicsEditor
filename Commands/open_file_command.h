@@ -8,7 +8,7 @@
 
 class OpenFileCommand : public Command{
 public:
-    OpenFileCommand();
+    OpenFileCommand(std::shared_ptr<ViewModel> vm);
     ~OpenFileCommand();
     void exec();
 

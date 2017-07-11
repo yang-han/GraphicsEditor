@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <QDebug>
 #include <QPixmap>
+#include <QImage>
 #include "Commands/open_file_command.h"
 
 View::View(QWidget *parent) :
@@ -19,11 +20,22 @@ View::~View()
     delete ui;
 }
 
-void View::update(QImage &q_image){
-    ui->label->setPixmap(QPixmap::fromImage(q_image));
+//void View::update(const QImage &q_image){
+//    qInfo() << QString("update");
+//    ui->label->setPixmap(QPixmap::fromImage(q_image));
+//}
+
+void View::set_img(std::shared_ptr<QImage> image){
+    std::cout << image.get() << std::endl;
+    std::cout << "set img " << std::endl;
+    this->q_image = image;
+}
+void View::update(){
+    qInfo() << QString("hehe");
+    ui->label->setPixmap(QPixmap::fromImage(*q_image));
 }
 
-void View::set_open_file_command(std::shared_ptr<OpenFileCommand> command){
+void View::set_open_file_command(std::shared_ptr<Command> command){
     open_file_command = command;
 }
 
@@ -39,5 +51,7 @@ void View::on_button_open_clicked()
     }
     qInfo() << file_name;
     open_file_command->get_params_handle().set_path(file_name.toStdString());
+    qInfo() << file_name;
     open_file_command->exec();
+    qInfo() << file_name;
 }

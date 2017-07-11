@@ -13,4 +13,7 @@ public:
     std::string get_path();
 };
 
+
+
+
 #endif // PARAMETERS_H

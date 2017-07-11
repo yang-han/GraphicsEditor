@@ -5,15 +5,16 @@
 #include <memory>
 #include <string>
 class ViewModel;
+class ModelNotification;
 
 class Model
 {
 private:
      cv::Mat image;
-     std::shared_ptr<ViewModel> viewmodel;
+     std::shared_ptr<ModelNotification> model_notification;
 public:
     Model();
-    void bind(std::shared_ptr<ViewModel> viewmodel);
+    void set_notification(std::shared_ptr<ModelNotification> model_notification);
     void open_file(std::string path);
     cv::Mat& get();
     void notify();
