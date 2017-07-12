@@ -9,6 +9,7 @@
 #include "Commands/open_file_command.h"
 #include "Commands/alter_bright_command.h"
 #include "Commands/filter_command.h"
+#include "Commands/reset_command.h"
 #include "notification.h"
 View::View(QWidget *parent) :
     QMainWindow(parent),
@@ -52,6 +53,10 @@ void View::set_alter_bright_command(std::shared_ptr<Command> command){
 void View::set_filter_rem_command(std::shared_ptr<Command> command){
     filter_rem_command = command;
 }
+void View::set_reset_command(std::shared_ptr<Command> command){
+    reset_command = command;
+}
+
 std::shared_ptr<Notification> View::get_update_view_notification(){
     return update_view_notification;
 }
@@ -91,4 +96,10 @@ void View::on_contrastSlider_valueChanged(int value)
 void View::on_filter_1_clicked()
 {
     filter_rem_command->exec();
+}
+
+
+void View::on_reset_clicked()
+{
+    reset_command->exec();
 }

@@ -7,8 +7,7 @@
 #include <QDebug>
 #include <iostream>
 #include "command.h"
-class OpenFileCommand;
-class AlterBrightCommand;
+
 
 class Notification;
 
@@ -29,6 +28,7 @@ public:
     void set_open_file_command(std::shared_ptr<Command>);
     void set_alter_bright_command(std::shared_ptr<Command>);
     void set_filter_rem_command(std::shared_ptr<Command>);
+    void set_reset_command(std::shared_ptr<Command>);
     std::shared_ptr<Notification> get_update_view_notification();
 
 private slots:
@@ -40,12 +40,16 @@ private slots:
 
     void on_filter_1_clicked();
 
+    void on_reset_clicked();
+
 private:
     Ui::View *ui;
     std::shared_ptr<QImage> q_image;
     std::shared_ptr<Command> open_file_command;
     std::shared_ptr<Command> alter_bright_command;
     std::shared_ptr<Command> filter_rem_command;
+    std::shared_ptr<Command> reset_command;
+
     std::shared_ptr<Notification> update_view_notification;
 };
 

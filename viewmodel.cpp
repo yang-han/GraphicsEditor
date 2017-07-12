@@ -8,6 +8,7 @@
 #include "Commands/open_file_command.h"
 #include "Commands/alter_bright_command.h"
 #include "Commands/filter_command.h"
+#include "Commands/reset_command.h"
 #include <QDebug>
 ViewModel::ViewModel():q_image(new QImage){
     open_file_command = std::static_pointer_cast<Command, OpenFileCommand>(std::shared_ptr<OpenFileCommand> (new OpenFileCommand(std::shared_ptr<ViewModel>(this))));
@@ -15,6 +16,7 @@ ViewModel::ViewModel():q_image(new QImage){
     update_display_data_notification = std::static_pointer_cast<Notification, UpdateDisplayDataNotification>
             (std::shared_ptr<UpdateDisplayDataNotification>(new UpdateDisplayDataNotification(std::shared_ptr<ViewModel>(this))));
     filter_rem_command = std::static_pointer_cast<Command, FilterRemCommand>(std::shared_ptr<FilterRemCommand>(new FilterRemCommand(std::shared_ptr<ViewModel>(this))));
+    reset_command = std::static_pointer_cast<Command, ResetCommand>(std::shared_ptr<ResetCommand>(new ResetCommand(std::shared_ptr<ViewModel>(this))));
 
 //    std::cout << q_image.get() << std::endl;
 }
@@ -34,6 +36,10 @@ void ViewModel::exec_filter_rem_command(){
     model->filterReminiscence();
 }
 
+void ViewModel::exec_reset_command(){
+    model->reset();
+}
+
 void ViewModel::bind(std::shared_ptr<Model> model){
     this->model = model;
 }
@@ -50,9 +56,15 @@ std::shared_ptr<Command> ViewModel::get_filter_rem_command(){
     return filter_rem_command;
 }
 
+std::shared_ptr<Command> ViewModel::get_reset_command(){
+    return reset_command;
+}
+
 std::shared_ptr<Notification> ViewModel::get_update_display_data_notification(){
     return update_display_data_notification;
 }
+
+
 
 std::shared_ptr<QImage> ViewModel::get(){
     return q_image;
