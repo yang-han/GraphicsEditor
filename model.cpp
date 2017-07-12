@@ -13,10 +13,11 @@ void Model::open_file(std::string path){
 
 //    std::cout << path << std::endl;
     image = cv::imread(path);
-
-//    std::cout << path << std::endl;
-//    qInfo() << QString("hehe");
-    notify();
+    if(image.empty()){
+        qInfo() << "false";
+    }else{
+        notify();
+    }
 }
 
 cv::Mat& Model::get(){
