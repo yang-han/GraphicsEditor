@@ -15,9 +15,9 @@ ViewModel::ViewModel():q_image(new QImage){
 }
 
 
-void ViewModel::exec_open_file_command(Parameters params){
+void ViewModel::exec_open_file_command(std::string path){
 //    qInfo() << QString("xixi");
-    model->open_file(params.get_path());
+    model->open_file(path);
 //    qInfo() << QString("xixi");
 }
 
@@ -35,10 +35,6 @@ std::shared_ptr<Notification> ViewModel::get_update_display_data_notification(){
 
 std::shared_ptr<QImage> ViewModel::get(){
     return q_image;
-}
-
-void ViewModel::set_notification(std::shared_ptr<ViewModelNotification> notification){
-    this->viewmodel_notification = notification;
 }
 
 void ViewModel::set_update_view_notification(std::shared_ptr<Notification> notification)

@@ -2,14 +2,14 @@
 #include "parameters.h"
 #include "viewmodel.h"
 
-Command::Command(std::shared_ptr<ViewModel> vm):viewmodel(vm)
+Command::Command()
 {
 
 }
 
-Parameters& Command::get_params_handle(){
-    return params;
-}
+//Parameters& Command::get_params_handle(){
+//    return params;
+//}
 
 //void Command::set_view_model(std::shared_ptr<ViewModel> viewmodel)
 //{

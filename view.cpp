@@ -57,7 +57,7 @@ void View::on_button_open_clicked()
         return;
     }
     qInfo() << file_name;
-    open_file_command->get_params_handle().set_path(file_name.toStdString());
+    open_file_command->set_parameters(std::static_pointer_cast<Parameters, PathParameters>(std::shared_ptr<PathParameters>(new PathParameters(file_name.toStdString()))));
 //    qInfo() << file_name;
     open_file_command->exec();
 //    qInfo() << file_name;

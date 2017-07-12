@@ -15,7 +15,6 @@ class ViewModel
 private:
     std::shared_ptr<QImage> q_image;
     std::shared_ptr<Model> model;
-    std::shared_ptr<ViewModelNotification> viewmodel_notification;
 
 
     std::shared_ptr<Command> open_file_command;
@@ -27,8 +26,7 @@ private:
 public:
     ViewModel();
     void bind(std::shared_ptr<Model> model);
-    void set_notification(std::shared_ptr<ViewModelNotification> notification);
-    void exec_open_file_command(Parameters params);
+    void exec_open_file_command(std::string path);
 
     void set_update_view_notification(std::shared_ptr<Notification> notification);
 

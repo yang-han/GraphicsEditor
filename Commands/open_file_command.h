@@ -7,6 +7,8 @@
 #include <memory>
 
 class OpenFileCommand : public Command{
+private:
+    std::shared_ptr<ViewModel> viewmodel;
 public:
     OpenFileCommand(std::shared_ptr<ViewModel> vm);
     ~OpenFileCommand();

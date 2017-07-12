@@ -9,13 +9,19 @@ class ViewModel;
 class Command
 {
 protected:
-    Parameters params;
-    std::shared_ptr<ViewModel> viewmodel;
+    std::shared_ptr<Parameters> params;
 public:
-    Command(std::shared_ptr<ViewModel> vm);
-    Parameters& get_params_handle();
+    Command();
+    void set_parameters(std::shared_ptr<Parameters> parameters){
+        params = parameters;
+    }
+
+//    Parameters& get_params_handle();
 //    void set_view_model(std::shared_ptr<ViewModel> viewmodel);
     virtual void exec() = 0;
 };
+
+
+
 
 #endif // COMMAND_H
