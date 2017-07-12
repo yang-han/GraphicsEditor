@@ -19,6 +19,7 @@ private:
 
     std::shared_ptr<Command> open_file_command;
     std::shared_ptr<Command> alter_bright_command;
+    std::shared_ptr<Command> filter_rem_command;
 
     std::shared_ptr<Notification> update_display_data_notification;
 
@@ -29,10 +30,13 @@ public:
     void bind(std::shared_ptr<Model> model);
     void exec_open_file_command(std::string path);
     void exec_alter_bright_command(int nBright, int nContrast);
+    void exec_filter_rem_command();
+
     void set_update_view_notification(std::shared_ptr<Notification> notification);
 
     std::shared_ptr<Command> get_open_file_command();
     std::shared_ptr<Command> get_alter_bright_command();
+    std::shared_ptr<Command> get_filter_rem_command();
     std::shared_ptr<Notification> get_update_display_data_notification();
 
     std::shared_ptr<QImage> get();
