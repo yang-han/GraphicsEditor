@@ -13,7 +13,7 @@ void Model::open_file(std::string path){
 
 //    std::cout << path << std::endl;
     image = cv::imread(path);
-    originImg = image;
+    image.copyTo(originImg);
     if(image.empty()){
         qInfo() << "false";
     }else{
