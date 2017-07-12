@@ -8,6 +8,7 @@
 #include <iostream>
 #include "command.h"
 class OpenFileCommand;
+class AlterBrightCommand;
 class Notification;
 
 namespace Ui {
@@ -25,15 +26,19 @@ public:
     void update();
     void set_img(std::shared_ptr<QImage> image);
     void set_open_file_command(std::shared_ptr<Command>);
+    void set_alter_bright_command(std::shared_ptr<Command>);
     std::shared_ptr<Notification> get_update_view_notification();
 
 private slots:
     void on_button_open_clicked();
 
+    void on_brightSlider_valueChanged(int value);
+
 private:
     Ui::View *ui;
     std::shared_ptr<QImage> q_image;
     std::shared_ptr<Command> open_file_command;
+    std::shared_ptr<Command> alter_bright_command;
     std::shared_ptr<Notification> update_view_notification;
 };
 

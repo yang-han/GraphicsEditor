@@ -13,6 +13,7 @@ void Model::open_file(std::string path){
 
 //    std::cout << path << std::endl;
     image = cv::imread(path);
+    originImg = image;
     if(image.empty()){
         qInfo() << "false";
     }else{
@@ -22,6 +23,10 @@ void Model::open_file(std::string path){
 
 cv::Mat& Model::get(){
     return image;
+}
+
+cv::Mat& Model::getOrigin(){
+    return originImg;
 }
 
 //void Model::bind(std::shared_ptr<ViewModel> viewmodel){
@@ -37,6 +42,7 @@ void Model::notify(){
 }
 
 void Model::alterBright(int nbright){
+    image = originImg;
     cv::Mat tmpImg = cv::Mat::zeros(image.size(), image.type());
     if(tmpImg.empty() == true){
         qInfo() << "false";
@@ -58,6 +64,7 @@ void Model::alterBright(int nbright){
 }
 
 void Model::alterContrast(int nContrast){
+    image = originImg;
     cv::Mat tmpImg = cv::Mat::zeros(image.size(), image.type());
     if(tmpImg.empty() == true){
         qInfo() << "false";

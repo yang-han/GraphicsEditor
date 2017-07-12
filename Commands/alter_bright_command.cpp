@@ -1,4 +1,4 @@
-#include "alter_bright_command.h"
+#include "Commands/alter_bright_command.h"
 #include "viewmodel.h"
 #include "command.h"
 #include <QDebug>

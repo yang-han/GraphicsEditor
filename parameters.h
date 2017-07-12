@@ -23,7 +23,6 @@ public:
 
 class brightParameters: public Parameters{
 private:
-
     int nBright; // may not be 'int'
 public:
     brightParameters(int bright):nBright(bright){}

@@ -8,7 +8,7 @@ class View;
 class Model;
 class Notification;
 class OpenFileCommand;
-
+class AlterBrightCommand;
 //#include "view.h"
 //#include "viewmodel.h"
 //#include "model.h"

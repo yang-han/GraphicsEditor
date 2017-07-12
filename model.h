@@ -11,12 +11,14 @@ class Model
 {
 private:
      cv::Mat image;
+     cv::Mat originImg;
      std::shared_ptr<Notification> update_display_data_notification;
 public:
     Model();
     void set_update_display_data_notification(std::shared_ptr<Notification> notification);
     void open_file(std::string path);
     cv::Mat& get();
+    cv::Mat& getOrigin();
     void notify();
 
     void alterBright(int nbright);

@@ -7,6 +7,7 @@
 #include <QPixmap>
 #include <QImage>
 #include "Commands/open_file_command.h"
+#include "Commands/alter_bright_command.h"
 #include "notification.h"
 View::View(QWidget *parent) :
     QMainWindow(parent),
@@ -40,6 +41,9 @@ void View::set_open_file_command(std::shared_ptr<Command> command){
     open_file_command = command;
 }
 
+void View::set_alter_bright_command(std::shared_ptr<Command> command){
+    alter_bright_command = command;
+}
 
 std::shared_ptr<Notification> View::get_update_view_notification(){
     return update_view_notification;
@@ -61,4 +65,10 @@ void View::on_button_open_clicked()
 //    qInfo() << file_name;
     open_file_command->exec();
 //    qInfo() << file_name;
+}
+
+void View::on_brightSlider_valueChanged(int value)
+{
+    alter_bright_command->set_parameters(std::static_pointer_cast<Parameters, brightParameters>(std::shared_ptr<brightParameters>(new brightParameters(value))));
+    alter_bright_command->exec();
 }

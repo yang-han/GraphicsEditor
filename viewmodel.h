@@ -32,6 +32,7 @@ public:
     void set_update_view_notification(std::shared_ptr<Notification> notification);
 
     std::shared_ptr<Command> get_open_file_command();
+    std::shared_ptr<Command> get_alter_bright_command();
     std::shared_ptr<Notification> get_update_display_data_notification();
 
     std::shared_ptr<QImage> get();
