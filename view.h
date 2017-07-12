@@ -34,6 +34,8 @@ private slots:
 
     void on_brightSlider_valueChanged(int value);
 
+    void on_contrastSlider_valueChanged(int value);
+
 private:
     Ui::View *ui;
     std::shared_ptr<QImage> q_image;

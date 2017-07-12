@@ -21,14 +21,13 @@ public:
     cv::Mat& getOrigin();
     void notify();
 
-    void alterBright(int nbright);
+    void alterBrightAndContrast(int nbright, int nContrast);
     /* When nbright = -200, the picture is almost full of black.
      * When nbright = 0, it shows the original picture.
      * When nbright = 200, the picture is almost full of white.
      * So we prefer to having 'nbright' between -150 to 150
      */
 
-    void alterContrast(int nContrast);
     /* When nContrast = 100, it shows the original picture.
      * When nContrast = 0, the picture is full of black.
      * When nContrast = 300, the picture has high contrast.

@@ -6,8 +6,9 @@
 
 
 void AlterBrightCommand::exec(){
-    int nBright = std::static_pointer_cast<brightParameters, Parameters>(Command::params)->get_nBright();
-    viewmodel->exec_alter_bright_command(nBright);
+    int nBright = std::static_pointer_cast<brightAndContrastParameters, Parameters>(Command::params)->get_nBright();
+    int nContrast = std::static_pointer_cast<brightAndContrastParameters, Parameters>(Command::params)->get_nContrast();
+    viewmodel->exec_alter_bright_command(nBright,nContrast);
 }
 
 

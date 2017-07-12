@@ -74,6 +74,14 @@ void View::on_button_open_clicked()
 
 void View::on_brightSlider_valueChanged(int value)
 {
-    alter_bright_command->set_parameters(std::static_pointer_cast<Parameters, brightParameters>(std::shared_ptr<brightParameters>(new brightParameters(value))));
+    int contrast = ui->contrastSlider->value();
+    alter_bright_command->set_parameters(std::static_pointer_cast<Parameters, brightAndContrastParameters>(std::shared_ptr<brightAndContrastParameters>(new brightAndContrastParameters(value,contrast))));
+    alter_bright_command->exec();
+}
+
+void View::on_contrastSlider_valueChanged(int value)
+{
+    int bright = ui->brightSlider->value();
+    alter_bright_command->set_parameters(std::static_pointer_cast<Parameters, brightAndContrastParameters>(std::shared_ptr<brightAndContrastParameters>(new brightAndContrastParameters(bright,value))));
     alter_bright_command->exec();
 }
