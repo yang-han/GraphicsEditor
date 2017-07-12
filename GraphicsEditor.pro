@@ -21,10 +21,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+macx {
+LIBS += /usr/local/Cellar/opencv3/3.2.0/lib/libopencv_highgui.dylib \
+        /usr/local/Cellar/opencv3/3.2.0/lib/libopencv_core.dylib \
+        /usr/local/Cellar/opencv3/3.2.0/lib/libopencv_imgproc.dylib \
+        /usr/local/Cellar/opencv3/3.2.0/lib/libopencv_imgcodecs.dylib
+
+INCLUDEPATH += /usr/local/Cellar/opencv3/3.2.0/include/
+}
+
+unix:!macx {
 LIBS += /usr/local/lib/libopencv_highgui.so \
         /usr/local/lib/libopencv_core.so    \
         /usr/local/lib/libopencv_imgproc.so \
         /usr/local/lib/libopencv_imgcodecs.so
+}
 
 CONFIG += c++14
 
