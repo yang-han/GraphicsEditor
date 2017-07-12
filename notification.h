@@ -21,22 +21,22 @@ public:
 
 
 
-class ModelNotification{
+class UpdateDisplayDataNotification: public Notification{
 private:
     std::shared_ptr<ViewModel> viewmodel;
 public:
-    ModelNotification(std::shared_ptr<ViewModel> vm):viewmodel(vm){}
+    UpdateDisplayDataNotification(std::shared_ptr<ViewModel> vm):viewmodel(vm){}
     void exec(){
         viewmodel->notified();
     }
 };
 
 
-class ViewModelNotification{
+class UpdateViewNotification: public Notification{
 private:
     std::shared_ptr<View> view;
 public:
-    ViewModelNotification(std::shared_ptr<View> v):view(v){}
+    UpdateViewNotification(std::shared_ptr<View> v):view(v){}
     void exec(){
         view->update();
     }

@@ -7,12 +7,13 @@
 #include <QPixmap>
 #include <QImage>
 #include "Commands/open_file_command.h"
-
+#include "notification.h"
 View::View(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::View)
 {
     ui->setupUi(this);
+    update_view_notification = std::static_pointer_cast<Notification, UpdateViewNotification>(std::shared_ptr<UpdateViewNotification>(new UpdateViewNotification(std::shared_ptr<View>(this))));
 }
 
 View::~View()
@@ -26,18 +27,24 @@ View::~View()
 //}
 
 void View::set_img(std::shared_ptr<QImage> image){
-    std::cout << image.get() << std::endl;
-    std::cout << "set img " << std::endl;
+//    std::cout << image.get() << std::endl;
+//    std::cout << "set img " << std::endl;
     this->q_image = image;
 }
 void View::update(){
-    qInfo() << QString("hehe");
+//    qInfo() << QString("hehe");
     ui->label->setPixmap(QPixmap::fromImage(*q_image));
 }
 
 void View::set_open_file_command(std::shared_ptr<Command> command){
     open_file_command = command;
 }
+
+
+std::shared_ptr<Notification> View::get_update_view_notification(){
+    return update_view_notification;
+}
+
 
 void View::on_button_open_clicked()
 {
@@ -51,7 +58,7 @@ void View::on_button_open_clicked()
     }
     qInfo() << file_name;
     open_file_command->get_params_handle().set_path(file_name.toStdString());
-    qInfo() << file_name;
+//    qInfo() << file_name;
     open_file_command->exec();
-    qInfo() << file_name;
+//    qInfo() << file_name;
 }

@@ -9,8 +9,9 @@
 #include <QDebug>
 ViewModel::ViewModel():q_image(new QImage){
     open_file_command = std::static_pointer_cast<Command, OpenFileCommand>(std::shared_ptr<OpenFileCommand> (new OpenFileCommand(std::shared_ptr<ViewModel>(this))));
-
-    std::cout << q_image.get() << std::endl;
+    update_display_data_notification = std::static_pointer_cast<Notification, UpdateDisplayDataNotification>
+            (std::shared_ptr<UpdateDisplayDataNotification>(new UpdateDisplayDataNotification(std::shared_ptr<ViewModel>(this))));
+//    std::cout << q_image.get() << std::endl;
 }
 
 
@@ -28,6 +29,9 @@ std::shared_ptr<Command> ViewModel::get_open_file_command(){
     return open_file_command;
 }
 
+std::shared_ptr<Notification> ViewModel::get_update_display_data_notification(){
+    return update_display_data_notification;
+}
 
 std::shared_ptr<QImage> ViewModel::get(){
     return q_image;
@@ -37,9 +41,12 @@ void ViewModel::set_notification(std::shared_ptr<ViewModelNotification> notifica
     this->viewmodel_notification = notification;
 }
 
+void ViewModel::set_update_view_notification(std::shared_ptr<Notification> notification)
+{
+    update_view_notification = notification;
+}
+
 void ViewModel::notified(){
     *q_image = Mat2QImage(model->get());
-//    std::cout << "q_image __ vm notified"<<q_image.get() << std::endl;
-//    qInfo() << QString("notified");
-    viewmodel_notification->exec();
+    update_view_notification->exec();
 }

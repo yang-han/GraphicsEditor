@@ -11,10 +11,10 @@ Model::Model()
 
 void Model::open_file(std::string path){
 
-    std::cout << path << std::endl;
+//    std::cout << path << std::endl;
     image = cv::imread(path);
 
-    std::cout << path << std::endl;
+//    std::cout << path << std::endl;
 //    qInfo() << QString("hehe");
     notify();
 }
@@ -27,10 +27,10 @@ cv::Mat& Model::get(){
 //    this->viewmodel = viewmodel;
 //}
 
-void Model::set_notification(std::shared_ptr<ModelNotification> model_notification){
-    this->model_notification = model_notification;
+void Model::set_update_display_data_notification(std::shared_ptr<Notification> notification){
+    this->update_display_data_notification = notification;
 }
 
 void Model::notify(){
-    model_notification->exec();
+    update_display_data_notification->exec();
 }

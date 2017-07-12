@@ -16,9 +16,8 @@ App::App():view(new View),model(new Model), viewmodel(new ViewModel)
 
     view->set_open_file_command(viewmodel->get_open_file_command());
 
-    viewmodel->set_notification(std::shared_ptr<ViewModelNotification>(new ViewModelNotification(view)));
-    model->set_notification(std::shared_ptr<ModelNotification>(new ModelNotification(viewmodel)));
-
+    viewmodel->set_update_view_notification(view->get_update_view_notification());
+    model->set_update_display_data_notification(viewmodel->get_update_display_data_notification());
 
 }
 

@@ -20,7 +20,7 @@ Notification::Notification()
 //    std::cout << "crash!" << std::endl;
 //    std::cout << "view "<< this->view.get() << std::endl;
 //    qInfo() << QString("notif exec");
-////    view->update(viewmodel->get());
+//    view->update(viewmodel->get());
 //    view->test();
 //    view->update();
 //    qInfo() << QString("?????");
