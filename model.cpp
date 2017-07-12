@@ -4,10 +4,6 @@
 #include "notification.h"
 #include <QDebug>
 #include <iostream>
-Model::Model()
-{
-
-}
 
 void Model::open_file(std::string path){
 

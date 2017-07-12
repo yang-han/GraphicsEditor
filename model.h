@@ -15,7 +15,7 @@ private:
      cv::Mat interImg; //intermediate variable
      std::shared_ptr<Notification> update_display_data_notification;
 public:
-    Model();
+    Model(){}
     void set_update_display_data_notification(std::shared_ptr<Notification> notification);
     void open_file(std::string path);
     cv::Mat& get();
