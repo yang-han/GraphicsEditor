@@ -99,6 +99,7 @@ void Model::filterReminiscence(){
 
 void Model::reset() {
 	image = originImg;
+    interImg = originImg;
 	if (image.empty())
 	{
 		qInfo() << "false";

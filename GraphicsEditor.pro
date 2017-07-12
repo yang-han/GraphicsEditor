@@ -52,7 +52,8 @@ SOURCES += \
     common.cpp \
     notification.cpp \
     Commands/alter_bright_command.cpp \
-    Commands/filter_command.cpp
+    Commands/filter_command.cpp \
+    Commands/reset_command.cpp
 
 HEADERS += \
         view.h \
@@ -65,7 +66,8 @@ HEADERS += \
     common.h \
     notification.h \
     Commands/alter_bright_command.h \
-    Commands/filter_command.h
+    Commands/filter_command.h \
+    Commands/reset_command.h
 
 FORMS += \
         view.ui

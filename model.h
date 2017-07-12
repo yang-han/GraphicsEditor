@@ -37,6 +37,6 @@ public:
 
     void filterReminiscence(); //Filter No.1
 	void reset();
-}
+};
 
 #endif // MODEL_H
