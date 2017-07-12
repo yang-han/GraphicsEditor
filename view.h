@@ -7,8 +7,6 @@
 #include <QDebug>
 #include <iostream>
 #include "command.h"
-class OpenFileCommand;
-class AlterBrightCommand;
 class Notification;
 
 namespace Ui {
