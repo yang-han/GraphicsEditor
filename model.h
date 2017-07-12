@@ -18,6 +18,8 @@ public:
     void open_file(std::string path);
     cv::Mat& get();
     void notify();
+
+    void changeBright(int nbright);
 };
 
 #endif // MODEL_H
