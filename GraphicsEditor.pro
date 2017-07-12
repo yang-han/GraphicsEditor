@@ -50,7 +50,8 @@ SOURCES += \
     parameters.cpp \
     Commands/open_file_command.cpp \
     common.cpp \
-    notification.cpp
+    notification.cpp \
+    Commands/alter_bright_command.cpp
 
 HEADERS += \
         view.h \
@@ -61,7 +62,8 @@ HEADERS += \
     parameters.h \
     Commands/open_file_command.h \
     common.h \
-    notification.h
+    notification.h \
+    Commands/alter_bright_command.h
 
 FORMS += \
         view.ui
