@@ -34,7 +34,12 @@ void View::set_img(std::shared_ptr<QImage> image){
 }
 void View::update(){
 //    qInfo() << QString("hehe");
-    ui->label->setPixmap(QPixmap::fromImage(*q_image));
+   // ui->label->setPixmap(QPixmap::fromImage(*q_image));
+	QGraphicsScene* t = new QGraphicsScene;
+	t->addPixmap(QPixmap::fromImage(*q_image));
+	ui->graphicsView->setScene(t);
+	ui->graphicsView->resize(QPixmap::fromImage(*q_image).size());
+	ui->graphicsView->show();
 }
 
 void View::set_open_file_command(std::shared_ptr<Command> command){
