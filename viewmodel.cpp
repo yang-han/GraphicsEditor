@@ -22,10 +22,10 @@ void ViewModel::exec_open_file_command(std::string path){
     model->open_file(path);
 //    qInfo() << QString("xixi");
 }
-void ViewModel::exec_alter_bright_command(int nBright){
+void ViewModel::exec_alter_bright_command(int nBright, int nContrast){
     //some operations to transfer "nBright" to "'int' nBright"
+    model->alterBrightAndContrast(nBright, nContrast);
 
-    model->alterBright(nBright);
 }
 
 void ViewModel::bind(std::shared_ptr<Model> model){

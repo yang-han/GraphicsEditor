@@ -21,15 +21,16 @@ public:
     }
 };
 
-class brightParameters: public Parameters{
+class brightAndContrastParameters: public Parameters{
 private:
     int nBright; // may not be 'int'
+    int nContrast;
 public:
-    brightParameters(int bright):nBright(bright){}
+    brightAndContrastParameters(int bright = 0, int contrast = 100):nBright(bright), nContrast(contrast){}
 
     int get_nBright(){return nBright;}
+    int get_nContrast(){return nContrast;}
 };
-
 
 
 #endif // PARAMETERS_H

@@ -34,7 +34,12 @@ void View::set_img(std::shared_ptr<QImage> image){
 }
 void View::update(){
 //    qInfo() << QString("hehe");
-    ui->label->setPixmap(QPixmap::fromImage(*q_image));
+   // ui->label->setPixmap(QPixmap::fromImage(*q_image));
+	QGraphicsScene* t = new QGraphicsScene;
+	t->addPixmap(QPixmap::fromImage(*q_image));
+	ui->graphicsView->setScene(t);
+	ui->graphicsView->resize(QPixmap::fromImage(*q_image).size());
+	ui->graphicsView->show();
 }
 
 void View::set_open_file_command(std::shared_ptr<Command> command){
@@ -69,6 +74,14 @@ void View::on_button_open_clicked()
 
 void View::on_brightSlider_valueChanged(int value)
 {
-    alter_bright_command->set_parameters(std::static_pointer_cast<Parameters, brightParameters>(std::shared_ptr<brightParameters>(new brightParameters(value))));
+    int contrast = ui->contrastSlider->value();
+    alter_bright_command->set_parameters(std::static_pointer_cast<Parameters, brightAndContrastParameters>(std::shared_ptr<brightAndContrastParameters>(new brightAndContrastParameters(value,contrast))));
+    alter_bright_command->exec();
+}
+
+void View::on_contrastSlider_valueChanged(int value)
+{
+    int bright = ui->brightSlider->value();
+    alter_bright_command->set_parameters(std::static_pointer_cast<Parameters, brightAndContrastParameters>(std::shared_ptr<brightAndContrastParameters>(new brightAndContrastParameters(bright,value))));
     alter_bright_command->exec();
 }

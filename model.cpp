@@ -41,7 +41,7 @@ void Model::notify(){
     update_display_data_notification->exec();
 }
 
-void Model::alterBright(int nbright){
+void Model::alterBrightAndContrast(int nbright, int nContrast){
     image = originImg;
     cv::Mat tmpImg = cv::Mat::zeros(image.size(), image.type());
     if(tmpImg.empty() == true){
@@ -51,7 +51,7 @@ void Model::alterBright(int nbright){
     for(int y = 0; y<image.rows; y++){
         for(int x = 0; x<image.cols;x++){
             for(int c = 0;c<3;c++){
-                tmpImg.at<cv::Vec3b>(y,x)[c] = cv::saturate_cast<uchar>(image.at<cv::Vec3b>(y,x)[c]+nbright);
+                tmpImg.at<cv::Vec3b>(y,x)[c] = cv::saturate_cast<uchar>((nContrast*0.01)*(image.at<cv::Vec3b>(y,x)[c]+nbright));
             }
         }
     }
@@ -63,24 +63,24 @@ void Model::alterBright(int nbright){
     }
 }
 
-void Model::alterContrast(int nContrast){
-    image = originImg;
-    cv::Mat tmpImg = cv::Mat::zeros(image.size(), image.type());
-    if(tmpImg.empty() == true){
-        qInfo() << "false";
-        return ;
-    }
-    for(int y = 0; y<image.rows; y++){
-        for(int x = 0; x<image.cols;x++){
-            for(int c = 0;c<3;c++){
-                tmpImg.at<cv::Vec3b>(y,x)[c] = cv::saturate_cast<uchar>((nContrast*0.01)*(image.at<cv::Vec3b>(y,x)[c]));
-            }
-        }
-    }
-    image = tmpImg;
-    if(image.empty()){
-        qInfo() << "false";
-    }else{
-        notify();
-    }
-}
+//void Model::alterContrast(int nContrast){
+////    image = originImg;
+//    cv::Mat tmpImg = cv::Mat::zeros(image.size(), image.type());
+//    if(tmpImg.empty() == true){
+//        qInfo() << "false";
+//        return ;
+//    }
+//    for(int y = 0; y<image.rows; y++){
+//        for(int x = 0; x<image.cols;x++){
+//            for(int c = 0;c<3;c++){
+//                tmpImg.at<cv::Vec3b>(y,x)[c] = cv::saturate_cast<uchar>((nContrast*0.01)*(image.at<cv::Vec3b>(y,x)[c]));
+//            }
+//        }
+//    }
+//    image = tmpImg;
+//    if(image.empty()){
+//        qInfo() << "false";
+//    }else{
+//        notify();
+//    }
+//}

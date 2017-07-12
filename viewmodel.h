@@ -28,7 +28,7 @@ public:
     ViewModel();
     void bind(std::shared_ptr<Model> model);
     void exec_open_file_command(std::string path);
-    void exec_alter_bright_command(int nBright);
+    void exec_alter_bright_command(int nBright, int nContrast);
     void set_update_view_notification(std::shared_ptr<Notification> notification);
 
     std::shared_ptr<Command> get_open_file_command();
