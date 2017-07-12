@@ -39,7 +39,7 @@ void Model::notify(){
 void Model::changeBright(int nbright){
     cv::Mat tmpImg = cv::Mat::zeros(image.size(), image.type());
     if(tmpImg.empty() == true){
-        std::cout<<"Can not create the tmpImg!"<<std::endl;
+        qInfo() << "false";
         return ;
     }
     for(int y = 0; y<image.rows; y++){
