@@ -101,4 +101,15 @@ void Model::filterReminiscence(){
     }
 }
 
+void Model::reset() {
+	image = originImg;
+	if (image.empty())
+	{
+		qInfo() << "false";
+	}
+	else {
+		notify();
+	}
+}
+
 
