@@ -10,8 +10,9 @@ class Notification;
 class Model
 {
 private:
-     cv::Mat image;
-     cv::Mat originImg;
+     cv::Mat image; //for showing
+     cv::Mat originImg; //for store the original
+     cv::Mat interImg; //intermediate variable
      std::shared_ptr<Notification> update_display_data_notification;
 public:
     Model();
@@ -33,6 +34,8 @@ public:
      * When nContrast = 300, the picture has high contrast.
      * So here, nContrast should be from 0 to 300.
      */
+
+    void filterReminiscence(); //Filter No.1
 };
 
 #endif // MODEL_H

@@ -17,6 +17,7 @@ App::App():view(new View),model(new Model), viewmodel(new ViewModel)
 
     view->set_open_file_command(viewmodel->get_open_file_command());
     view->set_alter_bright_command(viewmodel->get_alter_bright_command());
+    view->set_filter_rem_command(viewmodel->get_filter_rem_command());
 
     viewmodel->set_update_view_notification(view->get_update_view_notification());
     model->set_update_display_data_notification(viewmodel->get_update_display_data_notification());

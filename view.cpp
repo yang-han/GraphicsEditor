@@ -8,6 +8,7 @@
 #include <QImage>
 #include "Commands/open_file_command.h"
 #include "Commands/alter_bright_command.h"
+#include "Commands/filter_command.h"
 #include "notification.h"
 View::View(QWidget *parent) :
     QMainWindow(parent),
@@ -45,11 +46,12 @@ void View::update(){
 void View::set_open_file_command(std::shared_ptr<Command> command){
     open_file_command = command;
 }
-
 void View::set_alter_bright_command(std::shared_ptr<Command> command){
     alter_bright_command = command;
 }
-
+void View::set_filter_rem_command(std::shared_ptr<Command> command){
+    filter_rem_command = command;
+}
 std::shared_ptr<Notification> View::get_update_view_notification(){
     return update_view_notification;
 }
@@ -84,4 +86,9 @@ void View::on_contrastSlider_valueChanged(int value)
     int bright = ui->brightSlider->value();
     alter_bright_command->set_parameters(std::static_pointer_cast<Parameters, brightAndContrastParameters>(std::shared_ptr<brightAndContrastParameters>(new brightAndContrastParameters(bright,value))));
     alter_bright_command->exec();
+}
+
+void View::on_filter_1_clicked()
+{
+    filter_rem_command->exec();
 }
