@@ -59,7 +59,9 @@ SOURCES += \
     Commands/detect_face_command.cpp \
     Commands/save_file_command.cpp \
     Commands/save_bmp_command.cpp \
-    Commands/rotate_command.cpp
+    Commands/rotate_command.cpp \
+    Commands/crop_command.cpp \
+    MyView.cpp
 
 HEADERS += \
         view.h \
@@ -77,7 +79,9 @@ HEADERS += \
     Commands/detect_face_command.h \
     Commands/save_file_command.h \
     Commands/save_bmp_command.h \
-    Commands/rotate_command.h
+    Commands/rotate_command.h \
+    Commands/crop_command.h \
+    MyView.h
 
 FORMS += \
         view.ui

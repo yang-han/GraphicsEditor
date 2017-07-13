@@ -193,3 +193,24 @@ void Model::rotate(double angle)
         notify();
     }
 }
+void Model::crop(int x1, int y1, int x2, int y2)
+{
+    cv::Point point1(x1, y1);
+    cv::Point point2(x2, y2);
+    cv::Rect rect(point1, point2);
+
+    //计算剪切区域：剪切Rect与源图像所在Rect的交集
+    cv::Rect srcRect(0, 0, interImg.cols, interImg.rows);
+    rect = rect & srcRect;
+    if ( rect.width <= 0  || rect.height <= 0 ){
+        qInfo() << "The region is illegal!";
+        return;
+    }
+    //创建结果图像
+    interImg.create(cvSize(rect.width, rect.height), interImg.type());
+    cv::Mat output = interImg;
+    if (output.empty())
+        return ;
+    //复制源图像的剪切区域到结果图像
+    image(rect).copyTo( output );
+}

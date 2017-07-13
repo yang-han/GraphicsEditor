@@ -25,6 +25,7 @@ private:
     std::shared_ptr<Command> save_file_command;
     std::shared_ptr<Command> save_bmp_file_command;
     std::shared_ptr<Command> rotate_command;
+    std::shared_ptr<Command> crop_command;
 
     std::shared_ptr<Notification> update_display_data_notification;
 
@@ -41,6 +42,7 @@ public:
     void exec_save_file_command(std::string path);
     void exec_save_bmp_file_command(std::string path);
     void exec_rotate_command(int angle);
+    void exec_crop_command(double x_s, double y_s, double x_e, double y_e);
 
     void set_update_view_notification(std::shared_ptr<Notification> notification);
 
@@ -52,6 +54,7 @@ public:
     std::shared_ptr<Command> get_save_file_command();
     std::shared_ptr<Command> get_save_bmp_file_command();
     std::shared_ptr<Command> get_rotate_command();
+    std::shared_ptr<Command> get_crop_command();
 
     std::shared_ptr<Notification> get_update_display_data_notification();
     std::shared_ptr<QImage> get();

@@ -46,6 +46,7 @@ public:
     /* angle should be 'degree', such as 90 degree.
      * When angle is equal to 90 degree, the picture will turn right.
      */
+    void crop(int x1, int y1, int x2, int y2);
 };
 
 #endif // MODEL_H
