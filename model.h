@@ -22,6 +22,7 @@ public:
     cv::Mat& getOrigin();
     void notify();
     void save_file(std::string path);
+    void save_bmp_file(std::string path);
 
     void alterBrightAndContrast(int nbright, int nContrast);
     /* When nbright = -200, the picture is almost full of black.

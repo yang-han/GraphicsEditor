@@ -117,6 +117,9 @@ void Model::save_file(std::string path){
     cv::imwrite(path, image);
 
 }
+void Model::save_bmp_file(std::string path){
+    cv::imwrite(path, image);
+}
 
 void Model::detect_face(){
     cv::Mat gray;

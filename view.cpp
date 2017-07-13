@@ -11,6 +11,7 @@
 #include "Commands/filter_command.h"
 #include "Commands/reset_command.h"
 #include "Commands/save_file_command.h"
+#include "Commands/save_bmp_command.h"
 #include "notification.h"
 View::View(QWidget *parent) :
     QMainWindow(parent),
@@ -64,7 +65,9 @@ void View::set_detect_face_command(std::shared_ptr<Command> command){
 void View::set_save_file_command(std::shared_ptr<Command> command){
     save_file_command = command;
 }
-
+void View::set_save_bmp_file_command(std::shared_ptr<Command> command){
+    save_bmp_file_command = command;
+}
 
 std::shared_ptr<Notification> View::get_update_view_notification(){
     return update_view_notification;
@@ -135,4 +138,18 @@ void View::on_actionSave_triggered()
     qInfo() << file_name;
     save_file_command->set_parameters(std::static_pointer_cast<Parameters, PathParameters>(std::shared_ptr<PathParameters>(new PathParameters(file_name.toStdString()))));
     save_file_command->exec();
+}
+
+void View::on_action_bmp_triggered()
+{
+    auto path = QDir::homePath();
+    auto file_name = QFileDialog::getSaveFileName(this, tr("保存为bmp文件"), path,
+                                                        tr("image(*.png *.jpg *.bmp *.tiff);;AllFile(*)"));
+    if(file_name.isEmpty()){
+        QMessageBox::information(this, tr("Failed to Open this!"), tr("OK"));
+        return;
+    }
+    qInfo() << file_name;
+    save_bmp_file_command->set_parameters(std::static_pointer_cast<Parameters, PathParameters>(std::shared_ptr<PathParameters>(new PathParameters(file_name.toStdString()))));
+    save_bmp_file_command->exec();
 }
