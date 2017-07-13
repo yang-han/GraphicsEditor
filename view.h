@@ -42,6 +42,8 @@ private slots:
 
     void on_reset_clicked();
 
+	void on_actionOpen_File_triggered();
+
 private:
     Ui::View *ui;
     std::shared_ptr<QImage> q_image;

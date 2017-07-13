@@ -38,9 +38,10 @@ void View::update(){
 //    qInfo() << QString("hehe");
    // ui->label->setPixmap(QPixmap::fromImage(*q_image));
 	QGraphicsScene* t = new QGraphicsScene;
-	t->addPixmap(QPixmap::fromImage(*q_image));
+	QPixmap pic = QPixmap::fromImage(*q_image);
+	t->addPixmap(pic.scaled(ui->graphicsView->size(),Qt::KeepAspectRatio));
 	ui->graphicsView->setScene(t);
-	ui->graphicsView->resize(QPixmap::fromImage(*q_image).size());
+	//ui->graphicsView->resize(QPixmap::fromImage(*q_image).size());
 	ui->graphicsView->show();
 }
 
@@ -102,4 +103,9 @@ void View::on_filter_1_clicked()
 void View::on_reset_clicked()
 {
     reset_command->exec();
+}
+
+void View::on_actionOpen_File_triggered()
+{
+    on_button_open_clicked();
 }
