@@ -112,15 +112,20 @@ void Model::reset() {
 	}
 }
 
+void Model::save_file(std::string path){
+    std::cout << path << std::endl;
+}
+
+
 
 void Model::detect_face(){
     cv::Mat gray;
 //    std::cout << "debbbbbbbbug" << std::endl;
     cv::CascadeClassifier cascade;
-    cascade.load("../GraphicsEditor/lbpcascade_frontalface.xml");
+    cascade.load("lbpcascade_frontalface.xml");
     qInfo() << (new QDir)->currentPath();
     cv::Ptr<cv::face::FaceRecognizer> modelPCA = cv::face::createEigenFaceRecognizer();
-    modelPCA->load("../GraphicsEditor/MyFacePCAModel.xml");
+    modelPCA->load("MyFacePCAModel.xml");
 
     std::vector<cv::Rect> faces(0);
 

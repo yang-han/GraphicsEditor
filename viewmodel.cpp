@@ -10,6 +10,7 @@
 #include "Commands/filter_command.h"
 #include "Commands/reset_command.h"
 #include "Commands/detect_face_command.h"
+#include "Commands/save_file_command.h"
 #include <QDebug>
 ViewModel::ViewModel():q_image(new QImage){
     open_file_command = std::static_pointer_cast<Command, OpenFileCommand>(std::shared_ptr<OpenFileCommand> (new OpenFileCommand(std::shared_ptr<ViewModel>(this))));
@@ -19,12 +20,17 @@ ViewModel::ViewModel():q_image(new QImage){
     filter_rem_command = std::static_pointer_cast<Command, FilterRemCommand>(std::shared_ptr<FilterRemCommand>(new FilterRemCommand(std::shared_ptr<ViewModel>(this))));
     reset_command = std::static_pointer_cast<Command, ResetCommand>(std::shared_ptr<ResetCommand>(new ResetCommand(std::shared_ptr<ViewModel>(this))));
     detect_face_command = std::static_pointer_cast<Command, DetectFaceCommand>(std::shared_ptr<DetectFaceCommand>(new DetectFaceCommand(std::shared_ptr<ViewModel>(this))));
+    save_file_command = std::static_pointer_cast<Command, SaveFileCommand>(std::shared_ptr<SaveFileCommand>(new SaveFileCommand(std::shared_ptr<ViewModel>(this))));
 
 //    std::cout << q_image.get() << std::endl;
 }
 
 std::shared_ptr<Command> ViewModel::get_detect_face_command(){
     return detect_face_command;
+}
+
+std::shared_ptr<Command> ViewModel::get_save_file_command(){
+    return save_file_command;
 }
 
 void ViewModel::exec_detect_face_command(){
@@ -48,6 +54,10 @@ void ViewModel::exec_filter_rem_command(){
 
 void ViewModel::exec_reset_command(){
     model->reset();
+}
+
+void ViewModel::exec_save_file_command(std::string path){
+     model->save_file(path);
 }
 
 void ViewModel::bind(std::shared_ptr<Model> model){

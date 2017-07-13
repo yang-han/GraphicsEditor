@@ -55,7 +55,8 @@ SOURCES += \
     Commands/alter_bright_command.cpp \
     Commands/filter_command.cpp \
     Commands/reset_command.cpp \
-    Commands/detect_face_command.cpp
+    Commands/detect_face_command.cpp \
+    Commands/save_file_command.cpp
 
 HEADERS += \
         view.h \
@@ -70,7 +71,8 @@ HEADERS += \
     Commands/alter_bright_command.h \
     Commands/filter_command.h \
     Commands/reset_command.h \
-    Commands/detect_face_command.h
+    Commands/detect_face_command.h \
+    Commands/save_file_command.h
 
 FORMS += \
         view.ui
