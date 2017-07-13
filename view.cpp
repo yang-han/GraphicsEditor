@@ -10,6 +10,7 @@
 #include "Commands/alter_bright_command.h"
 #include "Commands/filter_command.h"
 #include "Commands/reset_command.h"
+#include "Commands/save_file_command.h"
 #include "notification.h"
 View::View(QWidget *parent) :
     QMainWindow(parent),
@@ -59,6 +60,9 @@ void View::set_reset_command(std::shared_ptr<Command> command){
 }
 void View::set_detect_face_command(std::shared_ptr<Command> command){
     detect_face_command = command;
+}
+void View::set_save_file_command(std::shared_ptr<Command> command){
+    save_file_command = command;
 }
 
 
@@ -117,4 +121,18 @@ void View::on_actionOpen_File_triggered()
 void View::on_button_detect_face_clicked()
 {
     detect_face_command->exec();
+}
+
+void View::on_actionSave_triggered()
+{
+    auto path = QDir::homePath();
+    auto file_name = QFileDialog::getOpenFileName(this, tr("打开文件"), path,
+                                                        tr("image(*.png *.jpg *.bmp *.tiff);;AllFile(*)"));
+    if(file_name.isEmpty()){
+        QMessageBox::information(this, tr("Failed to Open this!"), tr("OK"));
+        return;
+    }
+    qInfo() << file_name;
+    save_file_command->set_parameters(std::static_pointer_cast<Parameters, PathParameters>(std::shared_ptr<PathParameters>(new PathParameters(file_name.toStdString()))));
+    save_file_command->exec();
 }
