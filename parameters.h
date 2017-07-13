@@ -32,5 +32,13 @@ public:
     int get_nContrast(){return nContrast;}
 };
 
+class IntParameters :public Parameters {
+private:
+    int value;
+public:
+    IntParameters(int v) :value(v) {}
+    void setvalue(int v) { value = v; }
+    int getvalue() { return value; }
+};
 
 #endif // PARAMETERS_H

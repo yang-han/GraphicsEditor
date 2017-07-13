@@ -12,6 +12,7 @@
 #include "Commands/reset_command.h"
 #include "Commands/save_file_command.h"
 #include "Commands/save_bmp_command.h"
+#include "Commands/rotate_command.h"
 #include "notification.h"
 View::View(QWidget *parent) :
     QMainWindow(parent),
@@ -68,7 +69,9 @@ void View::set_save_file_command(std::shared_ptr<Command> command){
 void View::set_save_bmp_file_command(std::shared_ptr<Command> command){
     save_bmp_file_command = command;
 }
-
+void View::set_rotate_command(std::shared_ptr < Command > command) {
+    rotate_command = command;
+}
 std::shared_ptr<Notification> View::get_update_view_notification(){
     return update_view_notification;
 }
@@ -152,4 +155,20 @@ void View::on_action_bmp_triggered()
     qInfo() << file_name;
     save_bmp_file_command->set_parameters(std::static_pointer_cast<Parameters, PathParameters>(std::shared_ptr<PathParameters>(new PathParameters(file_name.toStdString()))));
     save_bmp_file_command->exec();
+}
+
+void View::on_action_png_triggered()
+{
+    on_action_bmp_triggered();
+}
+
+void View::on_action_jpeg_triggered()
+{
+    on_action_bmp_triggered();
+}
+
+void View::on_rotateSlider_valueChanged(int value)
+{
+    rotate_command->set_parameters(std::static_pointer_cast<Parameters, IntParameters>(std::shared_ptr<IntParameters>(new IntParameters(value))));
+    rotate_command->exec();
 }

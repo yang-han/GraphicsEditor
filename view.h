@@ -32,6 +32,7 @@ public:
     void set_detect_face_command(std::shared_ptr<Command>);
     void set_save_file_command(std::shared_ptr<Command>);
     void set_save_bmp_file_command(std::shared_ptr<Command>);
+    void set_rotate_command(std::shared_ptr<Command>);
     std::shared_ptr<Notification> get_update_view_notification();
 
 private slots:
@@ -53,6 +54,12 @@ private slots:
 
     void on_action_bmp_triggered();
 
+    void on_action_png_triggered();
+
+    void on_action_jpeg_triggered();
+
+    void on_rotateSlider_valueChanged(int value);
+
 private:
     Ui::View *ui;
     std::shared_ptr<QImage> q_image;
@@ -63,6 +70,7 @@ private:
     std::shared_ptr<Command> detect_face_command;
     std::shared_ptr<Command> save_file_command;
     std::shared_ptr<Command> save_bmp_file_command;
+    std::shared_ptr<Command> rotate_command;
 
     std::shared_ptr<Notification> update_view_notification;
 };
