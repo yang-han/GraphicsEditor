@@ -21,6 +21,7 @@ private:
     std::shared_ptr<Command> alter_bright_command;
     std::shared_ptr<Command> filter_rem_command;
     std::shared_ptr<Command> reset_command;
+    std::shared_ptr<Command> detect_face_command;
 
     std::shared_ptr<Notification> update_display_data_notification;
 
@@ -33,6 +34,7 @@ public:
     void exec_alter_bright_command(int nBright, int nContrast);
     void exec_filter_rem_command();
     void exec_reset_command();
+    void exec_detect_face_command();
 
     void set_update_view_notification(std::shared_ptr<Notification> notification);
 
@@ -40,6 +42,7 @@ public:
     std::shared_ptr<Command> get_alter_bright_command();
     std::shared_ptr<Command> get_filter_rem_command();
     std::shared_ptr<Command> get_reset_command();
+    std::shared_ptr<Command> get_detect_face_command();
 
     std::shared_ptr<Notification> get_update_display_data_notification();
     std::shared_ptr<QImage> get();

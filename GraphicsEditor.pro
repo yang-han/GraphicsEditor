@@ -34,7 +34,8 @@ unix:!macx {
 LIBS += /usr/local/lib/libopencv_highgui.so \
         /usr/local/lib/libopencv_core.so    \
         /usr/local/lib/libopencv_imgproc.so \
-        /usr/local/lib/libopencv_imgcodecs.so
+        /usr/local/lib/libopencv_imgcodecs.so\
+        /usr/local/lib/libopencv_*.so
 }
 
 CONFIG += c++14
@@ -53,7 +54,8 @@ SOURCES += \
     notification.cpp \
     Commands/alter_bright_command.cpp \
     Commands/filter_command.cpp \
-    Commands/reset_command.cpp
+    Commands/reset_command.cpp \
+    Commands/detect_face_command.cpp
 
 HEADERS += \
         view.h \
@@ -67,7 +69,8 @@ HEADERS += \
     notification.h \
     Commands/alter_bright_command.h \
     Commands/filter_command.h \
-    Commands/reset_command.h
+    Commands/reset_command.h \
+    Commands/detect_face_command.h
 
 FORMS += \
         view.ui

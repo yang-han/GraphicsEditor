@@ -164,6 +164,19 @@
      <string>reset</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="button_detect_face">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>10</y>
+      <width>89</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>detect_face</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -171,7 +184,7 @@
      <x>0</x>
      <y>0</y>
      <width>971</width>
-     <height>23</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

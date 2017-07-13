@@ -9,6 +9,7 @@
 #include "Commands/alter_bright_command.h"
 #include "Commands/filter_command.h"
 #include "Commands/reset_command.h"
+#include "Commands/detect_face_command.h"
 #include <QDebug>
 ViewModel::ViewModel():q_image(new QImage){
     open_file_command = std::static_pointer_cast<Command, OpenFileCommand>(std::shared_ptr<OpenFileCommand> (new OpenFileCommand(std::shared_ptr<ViewModel>(this))));
@@ -17,8 +18,17 @@ ViewModel::ViewModel():q_image(new QImage){
             (std::shared_ptr<UpdateDisplayDataNotification>(new UpdateDisplayDataNotification(std::shared_ptr<ViewModel>(this))));
     filter_rem_command = std::static_pointer_cast<Command, FilterRemCommand>(std::shared_ptr<FilterRemCommand>(new FilterRemCommand(std::shared_ptr<ViewModel>(this))));
     reset_command = std::static_pointer_cast<Command, ResetCommand>(std::shared_ptr<ResetCommand>(new ResetCommand(std::shared_ptr<ViewModel>(this))));
+    detect_face_command = std::static_pointer_cast<Command, DetectFaceCommand>(std::shared_ptr<DetectFaceCommand>(new DetectFaceCommand(std::shared_ptr<ViewModel>(this))));
 
 //    std::cout << q_image.get() << std::endl;
+}
+
+std::shared_ptr<Command> ViewModel::get_detect_face_command(){
+    return detect_face_command;
+}
+
+void ViewModel::exec_detect_face_command(){
+    model->detect_face();
 }
 
 

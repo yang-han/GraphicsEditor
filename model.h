@@ -35,6 +35,9 @@ public:
      * So here, nContrast should be from 0 to 300.
      */
 
+    void detect_face();
+
+
     void filterReminiscence(); //Filter No.1
 	void reset();
 };

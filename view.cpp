@@ -57,6 +57,10 @@ void View::set_filter_rem_command(std::shared_ptr<Command> command){
 void View::set_reset_command(std::shared_ptr<Command> command){
     reset_command = command;
 }
+void View::set_detect_face_command(std::shared_ptr<Command> command){
+    detect_face_command = command;
+}
+
 
 std::shared_ptr<Notification> View::get_update_view_notification(){
     return update_view_notification;
@@ -108,4 +112,9 @@ void View::on_reset_clicked()
 void View::on_actionOpen_File_triggered()
 {
     on_button_open_clicked();
+}
+
+void View::on_button_detect_face_clicked()
+{
+    detect_face_command->exec();
 }

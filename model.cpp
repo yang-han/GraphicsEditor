@@ -1,9 +1,12 @@
 #include "model.h"
 #include <opencv2/opencv.hpp>
+#include <opencv2/face.hpp>
+#include <vector>
 #include "viewmodel.h"
 #include "notification.h"
 #include <QDebug>
 #include <iostream>
+#include <QDir>
 
 void Model::open_file(std::string path){
 
@@ -107,6 +110,45 @@ void Model::reset() {
 	else {
 		notify();
 	}
+}
+
+
+void Model::detect_face(){
+    cv::Mat gray;
+//    std::cout << "debbbbbbbbug" << std::endl;
+    cv::CascadeClassifier cascade;
+    cascade.load("../GraphicsEditor/lbpcascade_frontalface.xml");
+    qInfo() << (new QDir)->currentPath();
+    cv::Ptr<cv::face::FaceRecognizer> modelPCA = cv::face::createEigenFaceRecognizer();
+    modelPCA->load("../GraphicsEditor/MyFacePCAModel.xml");
+
+    std::vector<cv::Rect> faces(0);
+
+    cv::cvtColor(image, gray, CV_BGR2GRAY);
+    cv::equalizeHist(gray, gray);
+
+    cascade.detectMultiScale(gray, faces,
+        1.1, 2, 0
+        //|CV_HAAR_FIND_BIGGEST_OBJECT
+        //|CV_HAAR_DO_ROUGH_SEARCH
+        | CV_HAAR_SCALE_IMAGE,
+        cv::Size(30, 30));
+
+    cv::Mat face;
+    cv::Point text_lb;
+
+    for (size_t i = 0; i < faces.size(); i++)
+    {
+        if (faces[i].height > 0 && faces[i].width > 0)
+        {
+            face = gray(faces[i]);
+            text_lb = cv::Point(faces[i].x, faces[i].y);
+
+            rectangle(image, faces[i], cv::Scalar(255, 0, 0), 1, 8, 0);
+        }
+    }
+
+    notify();
 }
 
 
