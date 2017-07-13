@@ -113,10 +113,10 @@ void Model::reset() {
 }
 
 void Model::save_file(std::string path){
-    std::cout << path << std::endl;
+//    std::cout << path << std::endl;
+    cv::imwrite(path, image);
+
 }
-
-
 
 void Model::detect_face(){
     cv::Mat gray;

@@ -126,7 +126,7 @@ void View::on_button_detect_face_clicked()
 void View::on_actionSave_triggered()
 {
     auto path = QDir::homePath();
-    auto file_name = QFileDialog::getOpenFileName(this, tr("打开文件"), path,
+    auto file_name = QFileDialog::getSaveFileName(this, tr("保存文件"), path,
                                                         tr("image(*.png *.jpg *.bmp *.tiff);;AllFile(*)"));
     if(file_name.isEmpty()){
         QMessageBox::information(this, tr("Failed to Open this!"), tr("OK"));
