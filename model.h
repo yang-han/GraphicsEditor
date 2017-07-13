@@ -42,6 +42,10 @@ public:
 
     void filterReminiscence(); //Filter No.1
 	void reset();
+    void rotate(double angle);
+    /* angle should be 'degree', such as 90 degree.
+     * When angle is equal to 90 degree, the picture will turn right.
+     */
 };
 
 #endif // MODEL_H

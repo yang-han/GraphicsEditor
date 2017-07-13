@@ -69,7 +69,9 @@ void View::set_save_file_command(std::shared_ptr<Command> command){
 void View::set_save_bmp_file_command(std::shared_ptr<Command> command){
     save_bmp_file_command = command;
 }
-
+void View::set_rotate_command(std::shared_ptr < Command > command) {
+    rotate_command = command;
+}
 std::shared_ptr<Notification> View::get_update_view_notification(){
     return update_view_notification;
 }

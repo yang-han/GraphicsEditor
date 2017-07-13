@@ -12,6 +12,7 @@
 #include "Commands/detect_face_command.h"
 #include "Commands/save_file_command.h"
 #include "Commands/save_bmp_command.h"
+#include "Commands/rotate_command.h"
 #include <QDebug>
 ViewModel::ViewModel():q_image(new QImage){
     open_file_command = std::static_pointer_cast<Command, OpenFileCommand>(std::shared_ptr<OpenFileCommand> (new OpenFileCommand(std::shared_ptr<ViewModel>(this))));
@@ -23,7 +24,7 @@ ViewModel::ViewModel():q_image(new QImage){
     detect_face_command = std::static_pointer_cast<Command, DetectFaceCommand>(std::shared_ptr<DetectFaceCommand>(new DetectFaceCommand(std::shared_ptr<ViewModel>(this))));
     save_file_command = std::static_pointer_cast<Command, SaveFileCommand>(std::shared_ptr<SaveFileCommand>(new SaveFileCommand(std::shared_ptr<ViewModel>(this))));
     save_bmp_file_command = std::static_pointer_cast<Command, SaveBmpCommand>(std::shared_ptr<SaveBmpCommand>(new SaveBmpCommand(std::shared_ptr<ViewModel>(this))));
-
+    rotate_command = std::static_pointer_cast<Command, RotateCommand>(std::shared_ptr<RotateCommand>(new RotateCommand(std::shared_ptr<ViewModel>(this))));
 //    std::cout << q_image.get() << std::endl;
 }
 
@@ -56,7 +57,9 @@ void ViewModel::exec_filter_rem_command(){
 void ViewModel::exec_reset_command(){
     model->reset();
 }
-
+void ViewModel::exec_rotate_command(int angle){
+    model->rotate((double)angle);
+}
 void ViewModel::exec_save_file_command(std::string path){
      model->save_file(path);
 }
@@ -90,7 +93,9 @@ std::shared_ptr<Command> ViewModel::get_save_bmp_file_command(){
 std::shared_ptr<Notification> ViewModel::get_update_display_data_notification(){
     return update_display_data_notification;
 }
-
+std::shared_ptr<Command> ViewModel::get_rotate_command(){
+    return rotate_command;
+}
 
 
 std::shared_ptr<QImage> ViewModel::get(){

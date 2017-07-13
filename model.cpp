@@ -159,4 +159,37 @@ void Model::detect_face(){
     notify();
 }
 
+void Model::rotate(double angle)
+{
+    if( image.empty() ) {
+        qInfo() << "false";
+        return ;
+    }
 
+    int width = image.cols;
+    int height = image.rows;
+
+    cv::Point2f center;
+    center.x = width / 2.0;
+    center.y = height / 2.0;
+
+    double scale = 1.0;
+    cv::Mat trans_mat = getRotationMatrix2D( center, -angle, scale );
+
+    double angle1 = angle  * CV_PI / 180.0 ;
+    double a = sin(angle1) * scale;
+    double b = cos(angle1) * scale;
+    double out_width = height * fabs(a) + width * fabs(b);
+    double out_height = width * fabs(a) + height * fabs(b);
+
+    trans_mat.at<double>(0, 2) += cvRound( (out_width - width) / 2 );
+    trans_mat.at<double>(1, 2) += cvRound( (out_height - height) / 2);
+
+    warpAffine(image, interImg, trans_mat, cvSize(out_width, out_height));
+    image = interImg;
+    if(image.empty()){
+        qInfo() << "false";
+    }else{
+        notify();
+    }
+}
