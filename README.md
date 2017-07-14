@@ -55,13 +55,16 @@ ViewModel执行Command的过程是调用Model中对应方法进行数据操作�
 
 ```
 .
-├── app.cpp
-├── app.h
-├── command.cpp
-├── command.h
+├── App
+│   ├── app.cpp
+│   └── app.h
 ├── Commands
+│   ├── aeroglass.cpp
+│   ├── aeroglass.h
 │   ├── alter_bright_command.cpp
 │   ├── alter_bright_command.h
+│   ├── command.cpp
+│   ├── command.h
 │   ├── crop_command.cpp
 │   ├── crop_command.h
 │   ├── detect_face_command.cpp
@@ -78,28 +81,39 @@ ViewModel执行Command的过程是调用Model中对应方法进行数据操作�
 │   ├── save_bmp_command.h
 │   ├── save_file_command.cpp
 │   └── save_file_command.h
-├── common.cpp
-├── common.h
+├── common
+│   ├── common.cpp
+│   └── common.h
+├── DOC
+│   ├── 个人心得_孙健.md
+│   ├── 个人心得_方钲清.md
+│   ├── 个人心得_杨晗.md
+│   └── 个人心得_王大鑫.md
 ├── GraphicsEditor.pro
 ├── GraphicsEditor.pro.user
 ├── LICENSE
 ├── main.cpp
-├── model.cpp
-├── model.h
-├── MyView.cpp
-├── MyView.h
-├── notification.cpp
-├── notification.h
-├── parameters.cpp
-├── parameters.h
+├── Model
+│   ├── model.cpp
+│   └── model.h
+├── Notification
+│   ├── notification.cpp
+│   └── notification.h
+├── Parameters
+│   ├── parameters.cpp
+│   └── parameters.h
 ├── README.md
-├── test.pro
-├── test.pro.user
-├── view.cpp
-├── view.h
-├── viewmodel.cpp
-├── viewmodel.h
-└── view.ui
+├── View
+│   ├── MyView.cpp
+│   ├── MyView.h
+│   ├── view.cpp
+│   ├── view.h
+│   └── view.ui
+└── ViewModel
+    ├── viewmodel.cpp
+    └── viewmodel.h
+
+9 directories, 48 files
 ```
 
 ## 6. 框架介绍

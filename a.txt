@@ -1,0 +1,61 @@
+.
+├── App
+│   ├── app.cpp
+│   └── app.h
+├── a.txt
+├── Commands
+│   ├── aeroglass.cpp
+│   ├── aeroglass.h
+│   ├── alter_bright_command.cpp
+│   ├── alter_bright_command.h
+│   ├── command.cpp
+│   ├── command.h
+│   ├── crop_command.cpp
+│   ├── crop_command.h
+│   ├── detect_face_command.cpp
+│   ├── detect_face_command.h
+│   ├── filter_command.cpp
+│   ├── filter_command.h
+│   ├── open_file_command.cpp
+│   ├── open_file_command.h
+│   ├── reset_command.cpp
+│   ├── reset_command.h
+│   ├── rotate_command.cpp
+│   ├── rotate_command.h
+│   ├── save_bmp_command.cpp
+│   ├── save_bmp_command.h
+│   ├── save_file_command.cpp
+│   └── save_file_command.h
+├── common
+│   ├── common.cpp
+│   └── common.h
+├── DOC
+│   ├── 个人心得_孙健.md
+│   ├── 个人心得_方钲清.md
+│   ├── 个人心得_杨晗.md
+│   └── 个人心得_王大鑫.md
+├── GraphicsEditor.pro
+├── GraphicsEditor.pro.user
+├── LICENSE
+├── main.cpp
+├── Model
+│   ├── model.cpp
+│   └── model.h
+├── Notification
+│   ├── notification.cpp
+│   └── notification.h
+├── Parameters
+│   ├── parameters.cpp
+│   └── parameters.h
+├── README.md
+├── View
+│   ├── MyView.cpp
+│   ├── MyView.h
+│   ├── view.cpp
+│   ├── view.h
+│   └── view.ui
+└── ViewModel
+    ├── viewmodel.cpp
+    └── viewmodel.h
+
+9 directories, 49 files
