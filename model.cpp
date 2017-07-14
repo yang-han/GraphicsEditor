@@ -166,8 +166,8 @@ void Model::rotate(double angle)
         return ;
     }
 
-    int width = image.cols;
-    int height = image.rows;
+    int width = originImg.cols;
+    int height = originImg.rows;
 
     cv::Point2f center;
     center.x = width / 2.0;
@@ -185,8 +185,8 @@ void Model::rotate(double angle)
     trans_mat.at<double>(0, 2) += cvRound( (out_width - width) / 2 );
     trans_mat.at<double>(1, 2) += cvRound( (out_height - height) / 2);
 
-    warpAffine(image, interImg, trans_mat, cvSize(out_width, out_height));
-    image = interImg;
+    warpAffine(originImg, image, trans_mat, cvSize(out_width, out_height));
+    interImg = image;
     if(image.empty()){
         qInfo() << "false";
     }else{
