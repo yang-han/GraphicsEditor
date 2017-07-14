@@ -136,7 +136,7 @@ void View::on_actionSave_triggered()
     auto file_name = QFileDialog::getSaveFileName(this, tr("保存文件"), path,
                                                         tr("image(*.png *.jpg *.bmp *.tiff);;AllFile(*)"));
     if(file_name.isEmpty()){
-        QMessageBox::information(this, tr("Failed to Open this!"), tr("OK"));
+        QMessageBox::information(this, tr("Failed to Open this!"), tr("Failed to Open this!"));
         return;
     }
     qInfo() << file_name;
@@ -150,7 +150,7 @@ void View::on_action_bmp_triggered()
     auto file_name = QFileDialog::getSaveFileName(this, tr("保存为bmp文件"), path,
                                                         tr("image(*.png *.jpg *.bmp *.tiff);;AllFile(*)"));
     if(file_name.isEmpty()){
-        QMessageBox::information(this, tr("Failed to Open this!"), tr("OK"));
+        QMessageBox::information(this, tr("Failed to Open this!"), tr("Failed to Open this!"));
         return;
     }
     qInfo() << file_name;
