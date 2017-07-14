@@ -11,6 +11,7 @@
 #include "Commands/reset_command.h"
 #include "Commands/detect_face_command.h"
 #include "Commands/save_file_command.h"
+#include "Commands/aeroglass.h"
 #include "Commands/save_bmp_command.h"
 #include "Commands/rotate_command.h"
 #include "Commands/crop_command.h"
@@ -21,6 +22,7 @@ ViewModel::ViewModel():q_image(new QImage){
     update_display_data_notification = std::static_pointer_cast<Notification, UpdateDisplayDataNotification>
             (std::shared_ptr<UpdateDisplayDataNotification>(new UpdateDisplayDataNotification(std::shared_ptr<ViewModel>(this))));
     filter_rem_command = std::static_pointer_cast<Command, FilterRemCommand>(std::shared_ptr<FilterRemCommand>(new FilterRemCommand(std::shared_ptr<ViewModel>(this))));
+    Aero_Glass_command = std::static_pointer_cast<Command, AeroGlassCommand>(std::shared_ptr<AeroGlassCommand>(new AeroGlassCommand(std::shared_ptr<ViewModel>(this))));
     reset_command = std::static_pointer_cast<Command, ResetCommand>(std::shared_ptr<ResetCommand>(new ResetCommand(std::shared_ptr<ViewModel>(this))));
     detect_face_command = std::static_pointer_cast<Command, DetectFaceCommand>(std::shared_ptr<DetectFaceCommand>(new DetectFaceCommand(std::shared_ptr<ViewModel>(this))));
     save_file_command = std::static_pointer_cast<Command, SaveFileCommand>(std::shared_ptr<SaveFileCommand>(new SaveFileCommand(std::shared_ptr<ViewModel>(this))));
@@ -55,6 +57,11 @@ void ViewModel::exec_filter_rem_command(){
     model->filterReminiscence();
 }
 
+void ViewModel::exec_Aero_Glass_command(){
+    model->AeroGlassscence();
+}
+
+
 void ViewModel::exec_reset_command(){
     model->reset();
 }
@@ -86,6 +93,10 @@ std::shared_ptr<Command> ViewModel::get_open_file_command(){
 
 std::shared_ptr<Command> ViewModel::get_alter_bright_command(){
     return alter_bright_command;
+}
+
+std::shared_ptr<Command> ViewModel::get_Aero_Glass_command(){
+    return Aero_Glass_command;
 }
 
 std::shared_ptr<Command> ViewModel::get_filter_rem_command(){

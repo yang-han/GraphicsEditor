@@ -61,7 +61,8 @@ SOURCES += \
     Commands/save_bmp_command.cpp \
     Commands/rotate_command.cpp \
     Commands/crop_command.cpp \
-    MyView.cpp
+    MyView.cpp \
+    Commands/aeroglass.cpp
 
 HEADERS += \
         view.h \
@@ -81,7 +82,8 @@ HEADERS += \
     Commands/save_bmp_command.h \
     Commands/rotate_command.h \
     Commands/crop_command.h \
-    MyView.h
+    MyView.h \
+    Commands/aeroglass.h
 
 FORMS += \
         view.ui

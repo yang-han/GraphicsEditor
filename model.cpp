@@ -100,6 +100,37 @@ void Model::filterReminiscence(){
     }
 }
 
+
+
+void Model::AeroGlassscence(){
+    using namespace cv;
+
+
+        cv::Mat imageResult = image.clone();
+        RNG rng;
+        int randomNum;
+        int Number = 5;
+
+        for (int i = 0; i < image.rows - Number; i++){
+            for (int j = 0; j < image.cols - Number; j++)
+            {
+                randomNum = rng.uniform(0, Number);
+                imageResult.at<Vec3b>(i, j)[0] = image.at<Vec3b>(i + randomNum, j + randomNum)[0];
+                imageResult.at<Vec3b>(i, j)[1] = image.at<Vec3b>(i + randomNum, j + randomNum)[1];
+                imageResult.at<Vec3b>(i, j)[2] = image.at<Vec3b>(i + randomNum, j + randomNum)[2];
+            }
+
+    }
+    interImg=imageResult.clone();
+    image=imageResult.clone();
+    if(image.empty()){
+        qInfo() << "false";
+    }else{
+        notify();
+    }
+}
+
+
 void Model::reset() {
 	image = originImg;
     interImg = originImg;
@@ -193,14 +224,17 @@ void Model::rotate(double angle)
         notify();
     }
 }
+
 void Model::crop(int x1, int y1, int x2, int y2)
 {
     cv::Point point1(x1, y1);
     cv::Point point2(x2, y2);
     cv::Rect rect(point1, point2);
-
+	
     //计算剪切区域：剪切Rect与源图像所在Rect的交集
-    cv::Rect srcRect(0, 0, interImg.cols, interImg.rows);
+	cv::Rect srcRect;
+	srcRect = cv::Rect(0, 0, interImg.cols, interImg.rows);
+
     rect = rect & srcRect;
     if ( rect.width <= 0  || rect.height <= 0 ){
         qInfo() << "The region is illegal!";

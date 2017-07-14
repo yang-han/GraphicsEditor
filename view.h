@@ -28,6 +28,7 @@ public:
     void set_open_file_command(std::shared_ptr<Command>);
     void set_alter_bright_command(std::shared_ptr<Command>);
     void set_filter_rem_command(std::shared_ptr<Command>);
+    void set_Aero_Glass_command(std::shared_ptr<Command>);
     void set_reset_command(std::shared_ptr<Command>);
     void set_detect_face_command(std::shared_ptr<Command>);
     void set_save_file_command(std::shared_ptr<Command>);
@@ -61,6 +62,8 @@ private slots:
 
     void on_rotateSlider_valueChanged(int value);
 
+    void on_filter_2_clicked();
+
 private:
     Ui::View *ui;
     MyView* canvas;
@@ -68,6 +71,7 @@ private:
     std::shared_ptr<Command> open_file_command;
     std::shared_ptr<Command> alter_bright_command;
     std::shared_ptr<Command> filter_rem_command;
+    std::shared_ptr<Command> Aero_Glass_command;
     std::shared_ptr<Command> reset_command;
     std::shared_ptr<Command> detect_face_command;
     std::shared_ptr<Command> save_file_command;

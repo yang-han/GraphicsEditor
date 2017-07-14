@@ -14,6 +14,7 @@
 #include "Commands/save_bmp_command.h"
 #include "Commands/rotate_command.h"
 #include "Commands/crop_command.h"
+#include"Commands/aeroglass.h"
 #include "notification.h"
 View::View(QWidget *parent) :
     QMainWindow(parent),
@@ -54,6 +55,10 @@ void View::set_alter_bright_command(std::shared_ptr<Command> command){
 void View::set_filter_rem_command(std::shared_ptr<Command> command){
     filter_rem_command = command;
 }
+void View::set_Aero_Glass_command(std::shared_ptr<Command> command){
+    Aero_Glass_command = command;
+}
+
 void View::set_reset_command(std::shared_ptr<Command> command){
     reset_command = command;
 }
@@ -172,4 +177,9 @@ void View::on_rotateSlider_valueChanged(int value)
 {
     rotate_command->set_parameters(std::static_pointer_cast<Parameters, IntParameters>(std::shared_ptr<IntParameters>(new IntParameters(value))));
     rotate_command->exec();
+}
+
+void View::on_filter_2_clicked()
+{
+       Aero_Glass_command->exec();
 }

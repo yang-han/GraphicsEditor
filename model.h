@@ -41,6 +41,7 @@ public:
 
 
     void filterReminiscence(); //Filter No.1
+    void AeroGlassscence();          //Filter No.2
 	void reset();
     void rotate(double angle);
     /* angle should be 'degree', such as 90 degree.
