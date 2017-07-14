@@ -7,7 +7,7 @@
 - QT version 5.9+
 - OpenCV 3.2.0 （with `OpenCV_contrib`）
 
-所需的人脸识别的训练好的模型因为文件过大无法传到github，可于http://osawfig85.bkt.clouddn.com/MyFacePCAModel.xml 下载。
+所需的人脸识别的训练好的模型因为文件过大无法传到github，可于http://osawfig85.bkt.clouddn.com/MyFacePCAModel.xml 以及http://osawfig85.bkt.clouddn.com/lbpcascade_frontalface.xml下载。
 
 编译后注意`model.cpp`中关于模型路径要正确才能正确使用。
 
