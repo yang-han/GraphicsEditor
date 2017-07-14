@@ -50,3 +50,62 @@ ViewModel执行Command的过程是调用Model中对应方法进行数据操作�
 在此之后，ViewModel通过通知告诉View更新显示窗口。
 
 二次开发只需增加相应的Command类并在model中实现功能，并讲command和notification绑定好即可。
+
+## 5. 项目目录
+
+```
+.
+├── app.cpp
+├── app.h
+├── command.cpp
+├── command.h
+├── Commands
+│   ├── alter_bright_command.cpp
+│   ├── alter_bright_command.h
+│   ├── crop_command.cpp
+│   ├── crop_command.h
+│   ├── detect_face_command.cpp
+│   ├── detect_face_command.h
+│   ├── filter_command.cpp
+│   ├── filter_command.h
+│   ├── open_file_command.cpp
+│   ├── open_file_command.h
+│   ├── reset_command.cpp
+│   ├── reset_command.h
+│   ├── rotate_command.cpp
+│   ├── rotate_command.h
+│   ├── save_bmp_command.cpp
+│   ├── save_bmp_command.h
+│   ├── save_file_command.cpp
+│   └── save_file_command.h
+├── common.cpp
+├── common.h
+├── GraphicsEditor.pro
+├── GraphicsEditor.pro.user
+├── LICENSE
+├── main.cpp
+├── model.cpp
+├── model.h
+├── MyView.cpp
+├── MyView.h
+├── notification.cpp
+├── notification.h
+├── parameters.cpp
+├── parameters.h
+├── README.md
+├── test.pro
+├── test.pro.user
+├── view.cpp
+├── view.h
+├── viewmodel.cpp
+├── viewmodel.h
+└── view.ui
+```
+
+## 6. 小组成员
+
+- 组长： 杨晗   MVVM框架搭建  人脸检测功能实现
+- 组员：
+  - 王大鑫： jenkins环境搭建   Model层基本功能实现
+  - 方钲清： QT界面绘制编写
+  - 孙健： 功能测试
