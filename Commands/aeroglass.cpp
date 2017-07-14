@@ -1,6 +1,6 @@
 #include "aeroglass.h"
-#include "viewmodel.h"
-#include "command.h"
+#include "ViewModel/viewmodel.h"
+#include "Commands/command.h"
 #include <QDebug>
 #include <string>
 

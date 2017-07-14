@@ -2,7 +2,7 @@
 #define _OPEN_FILE_COMMAND_H_
 
 #include "command.h"
-#include "viewmodel.h"
+#include "ViewModel/viewmodel.h"
 #include <string>
 #include <memory>
 

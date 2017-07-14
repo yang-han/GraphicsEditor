@@ -1,7 +1,7 @@
 #ifndef RESET_H_
 #define RESET_H_
 #include "command.h"
-#include "viewmodel.h"
+#include "ViewModel/viewmodel.h"
 #include <string>
 #include <memory>
 

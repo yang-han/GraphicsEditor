@@ -2,7 +2,7 @@
 #define ROTATE_COMMAND_H
 
 #include "command.h"
-#include "viewmodel.h"
+#include "ViewModel/viewmodel.h"
 #include <string>
 #include <memory>
 

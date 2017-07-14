@@ -1,9 +1,9 @@
 #ifndef COMMAND_H
 #define COMMAND_H
-#include "parameters.h"
+#include "Parameters/parameters.h"
 #include <string>
 #include <memory>
-#include "viewmodel.h"
+#include "ViewModel/viewmodel.h"
 class ViewModel;
 
 class Command

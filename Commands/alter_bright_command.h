@@ -3,7 +3,7 @@
 
 
 #include "command.h"
-#include "viewmodel.h"
+#include "ViewModel/viewmodel.h"
 #include <memory>
 
 class AlterBrightCommand : public Command{

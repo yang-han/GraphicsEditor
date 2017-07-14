@@ -43,47 +43,45 @@ CONFIG += c++14
 
 
 SOURCES += \
-        main.cpp \
-        view.cpp \
-    app.cpp \
-    model.cpp \
-    viewmodel.cpp \
-    command.cpp \
-    parameters.cpp \
-    Commands/open_file_command.cpp \
-    common.cpp \
-    notification.cpp \
+    App/app.cpp \
+    Commands/aeroglass.cpp \
     Commands/alter_bright_command.cpp \
-    Commands/filter_command.cpp \
-    Commands/reset_command.cpp \
-    Commands/detect_face_command.cpp \
-    Commands/save_file_command.cpp \
-    Commands/save_bmp_command.cpp \
-    Commands/rotate_command.cpp \
+    Commands/command.cpp \
     Commands/crop_command.cpp \
-    MyView.cpp \
-    Commands/aeroglass.cpp
-
+    Commands/detect_face_command.cpp \
+    Commands/filter_command.cpp \
+    Commands/open_file_command.cpp \
+    Commands/reset_command.cpp \
+    Commands/rotate_command.cpp \
+    Commands/save_bmp_command.cpp \
+    Commands/save_file_command.cpp \
+    common/common.cpp \
+    Model/model.cpp \
+    Notification/notification.cpp \
+    Parameters/parameters.cpp \
+    View/MyView.cpp \
+    View/view.cpp \
+    ViewModel/viewmodel.cpp \
+    main.cpp
 HEADERS += \
-        view.h \
-    app.h \
-    model.h \
-    viewmodel.h \
-    command.h \
-    parameters.h \
-    Commands/open_file_command.h \
-    common.h \
-    notification.h \
+    App/app.h \
+    Commands/aeroglass.h \
     Commands/alter_bright_command.h \
-    Commands/filter_command.h \
-    Commands/reset_command.h \
-    Commands/detect_face_command.h \
-    Commands/save_file_command.h \
-    Commands/save_bmp_command.h \
-    Commands/rotate_command.h \
+    Commands/command.h \
     Commands/crop_command.h \
-    MyView.h \
-    Commands/aeroglass.h
-
+    Commands/detect_face_command.h \
+    Commands/filter_command.h \
+    Commands/open_file_command.h \
+    Commands/reset_command.h \
+    Commands/rotate_command.h \
+    Commands/save_bmp_command.h \
+    Commands/save_file_command.h \
+    common/common.h \
+    Model/model.h \
+    Notification/notification.h \
+    Parameters/parameters.h \
+    View/MyView.h \
+    View/view.h \
+    ViewModel/viewmodel.h
 FORMS += \
-        view.ui
+    View/view.ui

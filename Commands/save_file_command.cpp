@@ -1,5 +1,5 @@
 #include "save_file_command.h"
-#include "viewmodel.h"
+#include "ViewModel/viewmodel.h"
 
 SaveFileCommand::SaveFileCommand(std::shared_ptr<ViewModel> vm):viewmodel(vm){
 

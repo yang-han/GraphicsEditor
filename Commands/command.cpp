@@ -1,6 +1,6 @@
 #include "command.h"
-#include "parameters.h"
-#include "viewmodel.h"
+#include "Parameters/parameters.h"
+#include "ViewModel/viewmodel.h"
 
 Command::Command()
 {

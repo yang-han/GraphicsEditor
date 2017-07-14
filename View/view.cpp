@@ -14,8 +14,8 @@
 #include "Commands/save_bmp_command.h"
 #include "Commands/rotate_command.h"
 #include "Commands/crop_command.h"
-#include"Commands/aeroglass.h"
-#include "notification.h"
+#include "Commands/aeroglass.h"
+#include "Notification/notification.h"
 View::View(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::View)

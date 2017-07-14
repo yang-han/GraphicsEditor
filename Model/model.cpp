@@ -2,8 +2,8 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/face.hpp>
 #include <vector>
-#include "viewmodel.h"
-#include "notification.h"
+#include "ViewModel/viewmodel.h"
+#include "Notification/notification.h"
 #include <QDebug>
 #include <iostream>
 #include <QDir>

@@ -2,8 +2,8 @@
 #define VIEWMODEL_H
 #include <QImage>
 #include <memory>
-#include "parameters.h"
-#include "command.h"
+#include "Parameters/parameters.h"
+#include "Commands/command.h"
 
 class Model;
 class Notification;

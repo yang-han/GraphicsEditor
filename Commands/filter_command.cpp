@@ -1,5 +1,5 @@
 #include "filter_command.h"
-#include "viewmodel.h"
+#include "ViewModel/viewmodel.h"
 #include "command.h"
 #include <QDebug>
 #include <string>

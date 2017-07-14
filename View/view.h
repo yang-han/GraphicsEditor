@@ -6,7 +6,7 @@
 #include <QImage>
 #include <QDebug>
 #include <iostream>
-#include "command.h"
+#include "Commands/command.h"
 #include "MyView.h"
 
 class Notification;

@@ -1,9 +1,9 @@
 #include "app.h"
-#include "view.h"
-#include "viewmodel.h"
-#include "model.h"
-#include "command.h"
-#include "notification.h"
+#include "View/view.h"
+#include "ViewModel/viewmodel.h"
+#include "Model/model.h"
+#include "Commands/command.h"
+#include "Notification/notification.h"
 #include <memory>
 
 App::App():view(new View),model(new Model), viewmodel(new ViewModel)

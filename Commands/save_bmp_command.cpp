@@ -1,5 +1,5 @@
 #include "save_bmp_command.h"
-#include "viewmodel.h"
+#include "ViewModel/viewmodel.h"
 
 SaveBmpCommand::SaveBmpCommand(std::shared_ptr<ViewModel> vm):viewmodel(vm){
 

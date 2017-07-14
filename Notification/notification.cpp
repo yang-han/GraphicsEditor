@@ -1,6 +1,6 @@
 #include "notification.h"
-#include "view.h"
-#include "viewmodel.h"
+#include "View/view.h"
+#include "ViewModel/viewmodel.h"
 #include <QDebug>
 
 Notification::Notification()

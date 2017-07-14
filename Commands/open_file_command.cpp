@@ -1,5 +1,5 @@
 #include "Commands/open_file_command.h"
-#include "viewmodel.h"
+#include "ViewModel/viewmodel.h"
 #include "command.h"
 #include <QDebug>
 #include <string>
