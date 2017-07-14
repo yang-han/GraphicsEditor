@@ -25,7 +25,8 @@ macx {
 LIBS += /usr/local/Cellar/opencv3/3.2.0/lib/libopencv_highgui.dylib \
         /usr/local/Cellar/opencv3/3.2.0/lib/libopencv_core.dylib \
         /usr/local/Cellar/opencv3/3.2.0/lib/libopencv_imgproc.dylib \
-        /usr/local/Cellar/opencv3/3.2.0/lib/libopencv_imgcodecs.dylib
+        /usr/local/Cellar/opencv3/3.2.0/lib/libopencv_imgcodecs.dylib \
+        /usr/local/Cellar/opencv3/3.2.0/lib/libopencv_*.dylib
 
 INCLUDEPATH += /usr/local/Cellar/opencv3/3.2.0/include/
 }
@@ -56,7 +57,12 @@ SOURCES += \
     Commands/filter_command.cpp \
     Commands/reset_command.cpp \
     Commands/detect_face_command.cpp \
-    Commands/save_file_command.cpp
+    Commands/save_file_command.cpp \
+    Commands/save_bmp_command.cpp \
+    Commands/rotate_command.cpp \
+    Commands/crop_command.cpp \
+    MyView.cpp \
+    Commands/aeroglass.cpp
 
 HEADERS += \
         view.h \
@@ -72,7 +78,12 @@ HEADERS += \
     Commands/filter_command.h \
     Commands/reset_command.h \
     Commands/detect_face_command.h \
-    Commands/save_file_command.h
+    Commands/save_file_command.h \
+    Commands/save_bmp_command.h \
+    Commands/rotate_command.h \
+    Commands/crop_command.h \
+    MyView.h \
+    Commands/aeroglass.h
 
 FORMS += \
         view.ui

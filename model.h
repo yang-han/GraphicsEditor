@@ -22,6 +22,7 @@ public:
     cv::Mat& getOrigin();
     void notify();
     void save_file(std::string path);
+    void save_bmp_file(std::string path);
 
     void alterBrightAndContrast(int nbright, int nContrast);
     /* When nbright = -200, the picture is almost full of black.
@@ -40,7 +41,13 @@ public:
 
 
     void filterReminiscence(); //Filter No.1
+    void AeroGlassscence();          //Filter No.2
 	void reset();
+    void rotate(double angle);
+    /* angle should be 'degree', such as 90 degree.
+     * When angle is equal to 90 degree, the picture will turn right.
+     */
+    void crop(int x1, int y1, int x2, int y2);
 };
 
 #endif // MODEL_H

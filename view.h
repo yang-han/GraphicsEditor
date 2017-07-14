@@ -7,7 +7,7 @@
 #include <QDebug>
 #include <iostream>
 #include "command.h"
-
+#include "MyView.h"
 
 class Notification;
 
@@ -28,9 +28,13 @@ public:
     void set_open_file_command(std::shared_ptr<Command>);
     void set_alter_bright_command(std::shared_ptr<Command>);
     void set_filter_rem_command(std::shared_ptr<Command>);
+    void set_Aero_Glass_command(std::shared_ptr<Command>);
     void set_reset_command(std::shared_ptr<Command>);
     void set_detect_face_command(std::shared_ptr<Command>);
     void set_save_file_command(std::shared_ptr<Command>);
+    void set_save_bmp_file_command(std::shared_ptr<Command>);
+    void set_rotate_command(std::shared_ptr<Command>);
+    void set_crop_command(std::shared_ptr<Command>);
     std::shared_ptr<Notification> get_update_view_notification();
 
 private slots:
@@ -50,15 +54,30 @@ private slots:
 
     void on_actionSave_triggered();
 
+    void on_action_bmp_triggered();
+
+    void on_action_png_triggered();
+
+    void on_action_jpeg_triggered();
+
+    void on_rotateSlider_valueChanged(int value);
+
+    void on_filter_2_clicked();
+
 private:
     Ui::View *ui;
+    MyView* canvas;
     std::shared_ptr<QImage> q_image;
     std::shared_ptr<Command> open_file_command;
     std::shared_ptr<Command> alter_bright_command;
     std::shared_ptr<Command> filter_rem_command;
+    std::shared_ptr<Command> Aero_Glass_command;
     std::shared_ptr<Command> reset_command;
     std::shared_ptr<Command> detect_face_command;
     std::shared_ptr<Command> save_file_command;
+    std::shared_ptr<Command> save_bmp_file_command;
+    std::shared_ptr<Command> rotate_command;
+    std::shared_ptr<Command> crop_command;
 
     std::shared_ptr<Notification> update_view_notification;
 };

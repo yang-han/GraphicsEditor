@@ -100,6 +100,37 @@ void Model::filterReminiscence(){
     }
 }
 
+
+
+void Model::AeroGlassscence(){
+    using namespace cv;
+
+
+        cv::Mat imageResult = image.clone();
+        RNG rng;
+        int randomNum;
+        int Number = 5;
+
+        for (int i = 0; i < image.rows - Number; i++){
+            for (int j = 0; j < image.cols - Number; j++)
+            {
+                randomNum = rng.uniform(0, Number);
+                imageResult.at<Vec3b>(i, j)[0] = image.at<Vec3b>(i + randomNum, j + randomNum)[0];
+                imageResult.at<Vec3b>(i, j)[1] = image.at<Vec3b>(i + randomNum, j + randomNum)[1];
+                imageResult.at<Vec3b>(i, j)[2] = image.at<Vec3b>(i + randomNum, j + randomNum)[2];
+            }
+
+    }
+    interImg=imageResult.clone();
+    image=imageResult.clone();
+    if(image.empty()){
+        qInfo() << "false";
+    }else{
+        notify();
+    }
+}
+
+
 void Model::reset() {
 	image = originImg;
     interImg = originImg;
@@ -113,10 +144,13 @@ void Model::reset() {
 }
 
 void Model::save_file(std::string path){
-    std::cout << path << std::endl;
+//    std::cout << path << std::endl;
+    cv::imwrite(path, image);
+
 }
-
-
+void Model::save_bmp_file(std::string path){
+    cv::imwrite(path, image);
+}
 
 void Model::detect_face(){
     cv::Mat gray;
@@ -156,4 +190,58 @@ void Model::detect_face(){
     notify();
 }
 
+void Model::rotate(double angle)
+{
+    if( image.empty() ) {
+        qInfo() << "false";
+        return ;
+    }
 
+    int width = originImg.cols;
+    int height = originImg.rows;
+
+    cv::Point2f center;
+    center.x = width / 2.0;
+    center.y = height / 2.0;
+
+    double scale = 1.0;
+    cv::Mat trans_mat = getRotationMatrix2D( center, -angle, scale );
+
+    double angle1 = angle  * CV_PI / 180.0 ;
+    double a = sin(angle1) * scale;
+    double b = cos(angle1) * scale;
+    double out_width = height * fabs(a) + width * fabs(b);
+    double out_height = width * fabs(a) + height * fabs(b);
+
+    trans_mat.at<double>(0, 2) += cvRound( (out_width - width) / 2 );
+    trans_mat.at<double>(1, 2) += cvRound( (out_height - height) / 2);
+
+    warpAffine(originImg, image, trans_mat, cvSize(out_width, out_height));
+    interImg = image;
+    if(image.empty()){
+        qInfo() << "false";
+    }else{
+        notify();
+    }
+}
+void Model::crop(int x1, int y1, int x2, int y2)
+{
+    cv::Point point1(x1, y1);
+    cv::Point point2(x2, y2);
+    cv::Rect rect(point1, point2);
+
+    //计算剪切区域：剪切Rect与源图像所在Rect的交集
+    cv::Rect srcRect(0, 0, interImg.cols, interImg.rows);
+    rect = rect & srcRect;
+    if ( rect.width <= 0  || rect.height <= 0 ){
+        qInfo() << "The region is illegal!";
+        return;
+    }
+    //创建结果图像
+    interImg.create(cvSize(rect.width, rect.height), interImg.type());
+    cv::Mat output = interImg;
+    if (output.empty())
+        return ;
+    //复制源图像的剪切区域到结果图像
+    image(rect).copyTo( output );
+}
