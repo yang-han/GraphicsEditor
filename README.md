@@ -102,7 +102,11 @@ ViewModel执行Command的过程是调用Model中对应方法进行数据操作�
 └── view.ui
 ```
 
-## 6. 小组成员
+## 6. 框架介绍
+
+较详细介绍在[博客](https://sleeepyy.github.io/2017/07/12/%E7%94%A8C-%E5%AE%9E%E7%8E%B0MVVM/)中。
+
+## 7. 小组成员
 
 - 组长： 杨晗   MVVM框架搭建  人脸检测功能实现
 - 组员：
