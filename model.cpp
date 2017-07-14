@@ -152,7 +152,7 @@ void Model::detect_face(){
             face = gray(faces[i]);
             text_lb = cv::Point(faces[i].x, faces[i].y);
 
-            rectangle(image, faces[i], cv::Scalar(255, 0, 0), 1, 8, 0);
+            rectangle(image, faces[i], cv::Scalar(0, 0, 255), 1, 8, 0);
         }
     }
 
