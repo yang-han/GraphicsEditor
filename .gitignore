@@ -1,3 +1,4 @@
 *.autosave
 *.user
 *.DS_Store
+.vscode/

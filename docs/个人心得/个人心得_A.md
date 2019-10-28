@@ -1,5 +1,5 @@
 ---
-Author: 杨晗
+Author: A
 Date: 2017.7.13
 ---
 
@@ -31,7 +31,7 @@ Date: 2017.7.13
 
 ### 架构详细介绍
 
-详见[博客](https://sleeepyy.github.io/2017/07/12/%E7%94%A8C-%E5%AE%9E%E7%8E%B0MVVM/)。
+详见[博客](https://yanghan.life/2017/07/12/%E7%94%A8C-%E5%AE%9E%E7%8E%B0MVVM/)。
 
 
 

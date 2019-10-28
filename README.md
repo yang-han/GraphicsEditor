@@ -84,11 +84,11 @@ ViewModel执行Command的过程是调用Model中对应方法进行数据操作�
 ├── common
 │   ├── common.cpp
 │   └── common.h
-├── DOC
-│   ├── 个人心得_孙健.md
-│   ├── 个人心得_方钲清.md
-│   ├── 个人心得_杨晗.md
-│   └── 个人心得_王大鑫.md
+├── docs
+│   ├── 个人心得_A.md
+│   ├── 个人心得_B.md
+│   ├── 个人心得_C.md
+│   └── 个人心得_D.md
 ├── GraphicsEditor.pro
 ├── GraphicsEditor.pro.user
 ├── LICENSE
@@ -118,19 +118,8 @@ ViewModel执行Command的过程是调用Model中对应方法进行数据操作�
 
 ## 6. 框架介绍
 
-较详细介绍在[博客](https://sleeepyy.github.io/2017/07/12/%E7%94%A8C-%E5%AE%9E%E7%8E%B0MVVM/)中。
+较详细介绍在[博客](https://yanghan.life/2017/07/12/%E7%94%A8C-%E5%AE%9E%E7%8E%B0MVVM/)中。
 
 #### 整体流程
 
 在`View`层进行操作之后，会触发对应槽函数，该槽函数会准备好参数`Parameter`交给对应的`Command`，然后执行`exec()`这个command，exec会解出参数交给`ViewModel`层，`ViewModel`调用`Model`里对应的方法，进行数据操作，`Model`操作完之后会通知`ViewModel`更新显示数据，`ViewModel`会通知`View`刷新显示。
-
-## 7. 小组成员
-
-- 组长： 
-  - 杨晗  `MVVM`框架搭建  人脸检测功能实现
-
-
-- 组员：
-  - 王大鑫： jenkins环境搭建   Model层各项基本功能实现
-  - 方钲清： QT界面绘制编写
-  - 孙健： 功能测试
